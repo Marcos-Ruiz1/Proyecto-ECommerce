@@ -16,7 +16,7 @@ public class Conexion {
     private String PASSWORD="1234";
     private String HOST="localhost";
     private String PORT="3306";
-    private String DATABASE="casohoteles";
+    private String DATABASE="eCommerce";
     private String CLASSNAME="com.mysql.cj.jdbc.Driver";
     private String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
     protected Connection con;

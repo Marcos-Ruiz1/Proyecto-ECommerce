@@ -4,7 +4,8 @@
  */
 
 package com.mycompany.proyectoe.commerce;
-
+import controlador.Conexion;
+import controlador.Consultas;
 /**
  *
  * @author marcos_zr
@@ -12,6 +13,13 @@ package com.mycompany.proyectoe.commerce;
 public class ProyectoECommerce {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        Conexion conex = new Conexion();
+        
+        conex.getConexion();
+        
+        Consultas sql = new Consultas();
+        
+        sql.aunteticacion("marcos antonio zazueta ruiz");
     }
 }
