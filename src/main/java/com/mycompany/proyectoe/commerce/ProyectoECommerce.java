@@ -5,6 +5,7 @@
 
 package com.mycompany.proyectoe.commerce;
 import persistencia.Conexion;
+import Interfaz.frmUsuario;
 import persistencia.Consultas;
 import entidades.Usuario;
 import negocio.Usuarios;
@@ -20,12 +21,16 @@ public class ProyectoECommerce {
         
         conex.getConexion();
         
-        Usuario usuarioNuevo = new Usuario("Juan Perez", "password1", "juan@gmail.com", 
-                "123-456-7890", "Calle 123, Ciudad X");
+        frmUsuario frameUsuario = new frmUsuario();
         
-        Usuarios negocioUsuarios = new Usuarios();
+        frameUsuario.setVisible(true);
         
-        negocioUsuarios.registrarUsuario(usuarioNuevo);
+//        Usuario usuarioNuevo = new Usuario("Juan Perez", "password1", "juan@gmail.com", 
+//                "123-456-7890", "Calle 123, Ciudad X");
+//        
+//        Usuarios negocioUsuarios = new Usuarios();
+//        
+//        negocioUsuarios.registrarUsuario(usuarioNuevo);
  //Creamos un usuario de prueba, estos valores serían los que se obtienen de la capa de presentación es decir la interfaz gráfica
 //        Usuario usuarioPrueba = new Usuario("marcos antonio zazueta ruiz", "contraseña", 
 //                "marcos.zazueta216354@potros.itson.edu.mx","6441316354", 

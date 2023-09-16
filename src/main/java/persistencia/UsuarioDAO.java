@@ -54,12 +54,13 @@ public class UsuarioDAO extends Conexion{
         PreparedStatement pst = null;
       
         try{
-            String consulta = "INSERT INTO usuarios (nombre, email, telefono, direccion) VALUES (?, ?, ?, ?)";
+            String consulta = "INSERT INTO usuarios (nombre, email, telefono, direccion, contrasena) VALUES (?, ?, ?, ?, ?)";
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, usuario.getNombre());
             pst.setString(2, usuario.getEmail());
             pst.setString(3, usuario.getTelefono());
             pst.setString(4, usuario.getDireccion());
+            pst.setString(5, usuario.getContrasena());
             
             
             if(pst.executeUpdate() == 1){

@@ -11,7 +11,7 @@ package entidades;
 public class Usuario {
     
     private String nombre;
-    private String contraseña;
+    private String contrasena;
     private String email;
     private String telefono;
     private String direccion;
@@ -20,9 +20,9 @@ public class Usuario {
         
     }
     
-    public Usuario(String nombre, String contraseña, String email, String telefono, String direccion){
+    public Usuario(String nombre, String contrasena, String email, String telefono, String direccion){
         this.nombre = nombre;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.email = email;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -36,12 +36,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getEmail() {

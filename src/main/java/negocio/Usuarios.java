@@ -2,6 +2,9 @@
 package negocio;
 import entidades.Usuario;
 import persistencia.UsuarioDAO;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author marcos_zr
@@ -31,6 +34,23 @@ public class Usuarios {
         
         usuarioDAO.registrar(usuario);
         
+    }
+    
+    public boolean validarContrasena(String contrasena){
+        
+        // La contraseña debe contener al menos una letra mayúscula, al menos un dígito,
+        // al menos un carácter especial y tener una longitud de entre 8 y 10 caracteres.
+        String expresionRegular = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,10}$";
+        
+        Pattern pattern = Pattern.compile(expresionRegular);
+        
+        Matcher matcher = pattern.matcher(contrasena);
+        
+        if(matcher.matches()){
+            return true;
+        }
+        
+        return false;
     }
     
     
