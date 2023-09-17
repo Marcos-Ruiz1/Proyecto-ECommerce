@@ -1,0 +1,59 @@
+[33mcommit ff63d097113747901bee31ca53a1886b0ff0acbd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: AlejandroBel27 <ruben.saldana216100@potros.itson.edu.mx>
+Date:   Sun Sep 17 01:49:27 2023 -0700
+
+    Se creo la entidad de producto y la persistencia de productoDAO
+
+[33mcommit b0f45c1a3d58a67df1074db4df9df58e8418c664[m
+Author: AlejandroBel27 <ruben.saldana216100@potros.itson.edu.mx>
+Date:   Sun Sep 17 01:46:18 2023 -0700
+
+    Se creo la entidad de producto y la persistencia de productoDAO
+
+[33mcommit 5f896be7c2130e08a688c1ce3c2d18518c88d1ce[m
+Author: AlejandroBel27 <ruben.saldana216100@potros.itson.edu.mx>
+Date:   Sun Sep 17 01:24:28 2023 -0700
+
+    Creacion de las clases
+
+[33mcommit ae9e07fc07febdae391d46a68f3288eb18ac9c66[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Fri Sep 15 20:50:38 2023 -0700
+
+    Validaciones del login del usuario y agregación de la entidad Pedido
+
+[33mcommit 3911b32b31d2ddba67498d4d04f25a63fa18836c[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Wed Sep 13 22:02:07 2023 -0700
+
+    agregación paquete interfaz y frames
+
+[33mcommit 1f31daf75ecfc2de623d02cb395b3615c8a46b5b[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Tue Sep 12 23:09:37 2023 -0700
+
+    arquitectura en capas usuario
+
+[33mcommit 36c26393f7298cd27beb4023eca7a11596614480[m
+Author: AlejandroBel27 <102635217+AlejandroBel27@users.noreply.github.com>
+Date:   Tue Sep 12 18:06:09 2023 -0700
+
+    Add files via upload
+
+[33mcommit 3619b2518a161240204617049e1156071b8f176b[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Sun Sep 10 19:59:33 2023 -0700
+
+    cambio en versión del jar a 8.0.23 y agregación de clase Consultas
+
+[33mcommit 756e3b0bdcf8a43f9903c361d71b2dc50dd75de0[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Sun Sep 10 19:21:51 2023 -0700
+
+    descarga de driver JDBC y conexión a base de datos
+
+[33mcommit b57821427583417ea5873474dc848e8abe36ccf2[m
+Author: marcos_zr <Marcos.ZazuetaRuiz1@gmail.com>
+Date:   Sat Sep 9 23:48:53 2023 -0700
+
+    Primer commit, comienza el proyecto :)
