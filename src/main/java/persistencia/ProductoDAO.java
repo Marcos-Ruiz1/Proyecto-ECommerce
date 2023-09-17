@@ -10,7 +10,11 @@ public class ProductoDAO extends Conexion {
 
     public ProductoDAO() {
     }
-    
+    /**
+     * Registro de producto.
+     * @param producto crea el producto para la base de datos
+     * @return retorna el producto en la base de datos.
+     */
   public boolean registrar (Producto producto){
       PreparedStatement pst = null;
       
