@@ -9,6 +9,10 @@ import Interfaz.frmUsuario;
 import persistencia.Consultas;
 import entidades.Usuario;
 import negocio.Usuarios;
+import entidades.Carrito;
+import entidades.Pedido;
+import negocio.Pedidos;
+import java.util.ArrayList;
 /**
  *
  * @author marcos_zr
@@ -21,9 +25,22 @@ public class ProyectoECommerce {
         
         conex.getConexion();
         
-        frmUsuario frameUsuario = new frmUsuario();
+        ArrayList<Integer> productos = new ArrayList<>();
         
-        frameUsuario.setVisible(true);
+        productos.add(1);
+        Carrito carrito = new Carrito();
+        carrito.getIdProducto().add(1);
+        
+        Pedido pedido = new Pedido("2023-09-15", 0, 13, carrito);
+        
+        Pedidos negocioPedidos = new Pedidos();
+        
+        negocioPedidos.registrarPedido(pedido);
+//        
+//        Carrito carrito = new Carrito(13, productos);
+//        frmUsuario frameUsuario = new frmUsuario();
+//        
+//        frameUsuario.setVisible(true);
         
 //        Usuario usuarioNuevo = new Usuario("Juan Perez", "password1", "juan@gmail.com", 
 //                "123-456-7890", "Calle 123, Ciudad X");

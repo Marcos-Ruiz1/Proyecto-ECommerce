@@ -1,6 +1,5 @@
 
 package entidades;
-
 /**
  *
  * @author marcos_zr
@@ -11,9 +10,29 @@ public class Pedido {
     private String fechaDePedido;
     private float cantidad;
     private int idUsuario;
+    private Carrito carrito;
     
     public Pedido(){
         
+    }
+    
+    public Pedido(int idPedido, String fechaDePedido, float cantidad, int idUsuario){
+        this.idPedido = idPedido;
+        this.fechaDePedido = fechaDePedido;
+        this.cantidad = cantidad;
+        this.idUsuario = idUsuario;
+    }
+    
+    public Pedido(String fechaDePedido, float cantidad, int idUsuario){
+        this.fechaDePedido = fechaDePedido;
+        this.cantidad = cantidad;
+        this.idUsuario = idUsuario;
+    }
+    
+    public Pedido(String fechaDePedido, float cantidad, int idUsuario, Carrito carrito){
+        this.fechaDePedido = fechaDePedido;
+        this.cantidad = cantidad;
+        this.idUsuario = idUsuario;
     }
 
     public int getIdPedido() {
@@ -46,6 +65,14 @@ public class Pedido {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public Carrito getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
     }
     
     

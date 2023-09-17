@@ -4,11 +4,13 @@
  */
 package persistencia;
 import entidades.Pedido;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 /**
  *
  * @author marcos_zr
  */
-public class PedidoDAO {
+public class PedidoDAO extends Conexion{
     
     
     public boolean registrar(Pedido pedido){

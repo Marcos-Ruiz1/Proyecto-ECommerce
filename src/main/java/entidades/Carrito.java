@@ -15,6 +15,11 @@ public class Carrito {
     public Carrito(){
         
     }
+    
+    public Carrito(int idUsuario, ArrayList<Integer> idProducto){
+        this.idUsuario = idUsuario;
+        this.idProducto = idProducto;
+    }
 
     public int getIdCarrito() {
         return idCarrito;
