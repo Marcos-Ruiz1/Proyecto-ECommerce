@@ -13,6 +13,8 @@ import entidades.Carrito;
 import entidades.Pedido;
 import negocio.Pedidos;
 import java.util.ArrayList;
+import entidades.*;
+import negocio.*;
 /**
  *
  * @author marcos_zr
@@ -25,38 +27,24 @@ public class ProyectoECommerce {
         
         conex.getConexion();
         
-        ArrayList<Integer> productos = new ArrayList<>();
+        Producto productoPrueba = null;
+        Productos negocioProductos = new Productos();
         
-        productos.add(1);
-        Carrito carrito = new Carrito();
-        carrito.getIdProducto().add(1);
+        productoPrueba = negocioProductos.obtenerProducto(2);
+        System.out.println(productoPrueba.getNombre() + " " + productoPrueba.getPrecio());
         
-        Pedido pedido = new Pedido("2023-09-15", 0, 13, carrito);
         
-        Pedidos negocioPedidos = new Pedidos();
-        
-        negocioPedidos.registrarPedido(pedido);
 //        
-//        Carrito carrito = new Carrito(13, productos);
-//        frmUsuario frameUsuario = new frmUsuario();
+//        ArrayList<Integer> productos = new ArrayList<>();
 //        
-//        frameUsuario.setVisible(true);
-        
-//        Usuario usuarioNuevo = new Usuario("Juan Perez", "password1", "juan@gmail.com", 
-//                "123-456-7890", "Calle 123, Ciudad X");
+//        productos.add(1);
+//        Carrito carrito = new Carrito();
+//        carrito.getIdProducto().add(1);
 //        
-//        Usuarios negocioUsuarios = new Usuarios();
+//        Pedido pedido = new Pedido("2023-09-15", 0, 13, carrito);
 //        
-//        negocioUsuarios.registrarUsuario(usuarioNuevo);
- //Creamos un usuario de prueba, estos valores serían los que se obtienen de la capa de presentación es decir la interfaz gráfica
-//        Usuario usuarioPrueba = new Usuario("marcos antonio zazueta ruiz", "contraseña", 
-//                "marcos.zazueta216354@potros.itson.edu.mx","6441316354", 
-//                "Ciudad Obregón, Sonora. Colonia Nueva Palmira cerrada desierto #6032");
+//        Pedidos negocioPedidos = new Pedidos();
 //        
-//        Usuarios negocioUsuarios = new Usuarios();
-//        
-//        
-//        //Mandamos el usuario creado en la interfaz grafica hacía la capa de Negocio
-//        negocioUsuarios.autentificarUsuario(usuarioPrueba);
+//        negocioPedidos.registrarPedido(pedido);
     }
 }
