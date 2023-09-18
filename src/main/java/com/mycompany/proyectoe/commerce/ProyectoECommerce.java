@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
+
 
 package com.mycompany.proyectoe.commerce;
 import persistencia.Conexion;
 import Interfaz.frmUsuario;
-import persistencia.Consultas;
 import entidades.Usuario;
 import negocio.Usuarios;
 import entidades.Carrito;
@@ -15,6 +11,7 @@ import negocio.Pedidos;
 import java.util.ArrayList;
 import entidades.*;
 import negocio.*;
+import servicio.*;
 /**
  *
  * @author marcos_zr
@@ -27,24 +24,28 @@ public class ProyectoECommerce {
         
         conex.getConexion();
         
-        Producto productoPrueba = null;
-        Productos negocioProductos = new Productos();
         
-        productoPrueba = negocioProductos.obtenerProducto(2);
-        System.out.println(productoPrueba.getNombre() + " " + productoPrueba.getPrecio());
-        
-        
+//        ArrayList<Integer> productosEnCarrito = new ArrayList<>();
 //        
-//        ArrayList<Integer> productos = new ArrayList<>();
+//        productosEnCarrito.add(2);
+//        productosEnCarrito.add(1);
+//        productosEnCarrito.add(1);
+//        productosEnCarrito.add(1);
+//        Carrito carrito = new Carrito(12, 0, productosEnCarrito);
+//
+//        Fecha fecha = new Fecha(01, 06, 2001);
 //        
-//        productos.add(1);
-//        Carrito carrito = new Carrito();
-//        carrito.getIdProducto().add(1);
 //        
-//        Pedido pedido = new Pedido("2023-09-15", 0, 13, carrito);
+//        Pedido pedido = new Pedido(fecha.getFecha(), 0, 12, carrito);
 //        
 //        Pedidos negocioPedidos = new Pedidos();
+//        Carritos negocioCarritos = new Carritos();
 //        
 //        negocioPedidos.registrarPedido(pedido);
+//        Pedido pedidoObtenido = negocioPedidos.obtenerPedido(12, fecha);
+//        
+//        System.out.println(pedidoObtenido.getIdPedido() + " " + pedidoObtenido.getFechaDePedido() + 
+//                " " + pedidoObtenido.getCantidad() + " " + pedidoObtenido.getIdUsuario());
+        
     }
 }

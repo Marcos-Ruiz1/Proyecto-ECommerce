@@ -33,6 +33,7 @@ public class Pedido {
         this.fechaDePedido = fechaDePedido;
         this.cantidad = cantidad;
         this.idUsuario = idUsuario;
+        this.carrito = carrito;
     }
 
     public int getIdPedido() {

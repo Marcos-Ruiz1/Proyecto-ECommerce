@@ -21,7 +21,7 @@ public class Productos {
         Producto producto = null;
         ProductoDAO productoDAO = new ProductoDAO();
         
-        producto = productoDAO.obtenerProducto(idProducto);
+        producto = productoDAO.obtener(idProducto);
         
         return producto;
     }

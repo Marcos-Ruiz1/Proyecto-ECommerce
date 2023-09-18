@@ -22,15 +22,27 @@ public class CarritoDAO extends Conexion{
         try{
             String consulta = "INSERT INTO ProductosPedidos(idPedido, idProducto) VALUES (?, ?)";
             pst = getConexion().prepareStatement(consulta);
-            pst.setInt(1, carrito.getIdUsuario());
             
-            
-            
-            
-            if(pst.executeUpdate() == 1){
-                System.out.println("Usuario registrado con exito");
-                return true;
+            for (Integer idProducto : carrito.getIdProducto()) {
+                pst.setInt(1, carrito.getIdUsuario());
+                pst.setInt(2, idProducto);
+                pst.addBatch(); // Agregar la consulta al lote
             }
+            
+            int[] resultados = pst.executeBatch(); // Ejecutar todas las inserciones en lote
+            
+            // Verificar si todas las inserciones tuvieron éxito
+            for (int resultado : resultados) {
+                if (resultado != 1) {
+                    getConexion().rollback(); // Deshacer la transacción en caso de error
+                    return false;
+                }
+            }
+            
+            getConexion().commit(); // Confirmar la transacción si todo fue exitoso
+            System.out.println("Carrito registrado con éxito");
+            return true;
+            
         } catch(Exception e){
             System.out.println("Error en " + e);
         }finally{
@@ -42,12 +54,12 @@ public class CarritoDAO extends Conexion{
             }
         }
         
-        System.out.println("Usuario no registrado con exito");
+        System.out.println("Carrito no registrado con exito");
         return false;
     }
     
-    public Carrito obtener(){
-        Carrito carrito = new Carrito();
+    public Carrito obtener(Carrito carrito){
+        
         PreparedStatement pst = null;
         ResultSet rs = null;
         

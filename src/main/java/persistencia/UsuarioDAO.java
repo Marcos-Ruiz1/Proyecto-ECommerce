@@ -3,6 +3,7 @@ package persistencia;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import entidades.Usuario;
+import java.sql.SQLException;
 
 /**
  *
@@ -80,5 +81,43 @@ public class UsuarioDAO extends Conexion{
         
         System.out.println("Usuario no registrado con exito");
         return false;
+    }
+    
+    
+    public Usuario obtener(int idUsuario) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Usuario usuario = null;
+
+        try {
+           
+            String consulta = "SELECT * FROM productos WHERE idUsuario = ?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setInt(1, idUsuario);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Obtener datos del resultado y crear un objeto Usuario
+                int id = rs.getInt("idUsuario");
+                String nombre = rs.getString("nombre");
+                String email = rs.getString("email");
+                String telefono = rs.getString("telefono");
+                String direccion = rs.getString("direccion");
+                String contrasena = rs.getString("contrasena");
+
+                usuario = new Usuario(nombre, contrasena, email, telefono, direccion);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            try{
+                if(getConexion() != null) getConexion().close();
+                if(pst != null) pst.close();
+            } catch(Exception e){
+                System.out.println("Error en " + e);
+            }
+        }
+
+        return usuario;
     }
 }

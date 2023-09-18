@@ -131,9 +131,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\toolbar\Floppy.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
     </Component>
@@ -142,9 +139,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\toolbar\Delete.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Vaciar"/>
       </Properties>
     </Component>
@@ -152,9 +146,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\toolbar\folder_black_explorer.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>

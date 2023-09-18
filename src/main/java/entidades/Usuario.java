@@ -10,6 +10,7 @@ package entidades;
  */
 public class Usuario {
     
+    private int idUsuario;
     private String nombre;
     private String contrasena;
     private String email;
@@ -66,6 +67,14 @@ public class Usuario {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
     
     

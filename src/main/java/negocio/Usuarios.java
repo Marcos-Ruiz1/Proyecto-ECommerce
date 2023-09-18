@@ -53,5 +53,14 @@ public class Usuarios {
         return false;
     }
     
+    public Usuario obtenerUsuario(int idUsuario){
+        Usuario usuario = null;
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        usuario = usuarioDAO.obtener(idUsuario);
+        
+        return usuario;
+    }
+    
     
 }

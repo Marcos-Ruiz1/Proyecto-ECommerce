@@ -49,7 +49,7 @@ public class ProductoDAO extends Conexion {
     
     
     
-    public Producto obtenerProducto(int idProducto) {
+    public Producto obtener(int idProducto) {
         PreparedStatement pst = null;
         ResultSet rs = null;
         Producto producto = null;
