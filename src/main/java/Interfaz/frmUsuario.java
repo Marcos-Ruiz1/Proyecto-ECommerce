@@ -43,6 +43,7 @@ public class frmUsuario extends javax.swing.JFrame {
         botonGuardar = new javax.swing.JButton();
         botonVaciar = new javax.swing.JButton();
         campoTextoContrasena = new javax.swing.JPasswordField();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,13 @@ public class frmUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,15 +109,17 @@ public class frmUsuario extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(campoTextoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(botonVaciar)
-                                        .addComponent(jLabel6))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(btnVolver))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(18, 18, 18)
                                             .addComponent(campoTextoContrasena))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(botonVaciar)
+                                            .addGap(46, 46, 46)
                                             .addComponent(botonGuardar)
                                             .addGap(48, 48, 48)))))))
                     .addGroup(layout.createSequentialGroup()
@@ -145,7 +155,8 @@ public class frmUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonGuardar)
-                    .addComponent(botonVaciar))
+                    .addComponent(botonVaciar)
+                    .addComponent(btnVolver))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -195,6 +206,13 @@ public class frmUsuario extends javax.swing.JFrame {
         campoTextoDireccion.setText("");
     }//GEN-LAST:event_botonVaciarActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+        frmLogin log = new frmLogin();
+        log.setVisible(true);
+        
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,6 +251,7 @@ public class frmUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonGuardar;
     private javax.swing.JButton botonVaciar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPasswordField campoTextoContrasena;
     private javax.swing.JTextField campoTextoDireccion;
     private javax.swing.JTextField campoTextoEmail;
