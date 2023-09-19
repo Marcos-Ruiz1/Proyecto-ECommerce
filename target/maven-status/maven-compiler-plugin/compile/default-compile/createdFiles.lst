@@ -1,3 +1,5 @@
 com\mycompany\proyectoe\commerce\ProyectoECommerce.class
+negocio\TMProducto.class
 Interfaz\frmPedido$2.class
 Interfaz\frmLogin$3.class
+Interfaz\frmProducto.class
