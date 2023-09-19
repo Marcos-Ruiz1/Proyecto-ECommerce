@@ -4,6 +4,8 @@
  */
 package Interfaz;
 
+import Interfaz.frmLogin;
+import Interfaz.frmUsuario;
 /**
  *
  * @author cocob
@@ -15,6 +17,7 @@ public class frmInicio extends javax.swing.JFrame {
      */
     public frmInicio() {
         initComponents();
+        
     }
 
     /**
@@ -37,6 +40,7 @@ public class frmInicio extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/dportenis-portada.jpg"))); // NOI18N
 
+        btnCliente.setBackground(new java.awt.Color(255, 255, 255));
         btnCliente.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
         btnCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iniciar-sesion.png"))); // NOI18N
@@ -100,14 +104,20 @@ public class frmInicio extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        // TODO add your handling code here:
+
+        frmLogin log = new frmLogin();
+        log.setVisible(true);
+        
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         // TODO add your handling code here:
+        frmUsuario usuario = new frmUsuario();
+        usuario.setVisible(true);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
@@ -138,11 +148,11 @@ public class frmInicio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmInicio().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new frmInicio().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

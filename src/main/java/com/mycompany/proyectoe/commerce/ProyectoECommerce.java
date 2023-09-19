@@ -1,6 +1,6 @@
-
-
 package com.mycompany.proyectoe.commerce;
+
+import Interfaz.frmInicio;
 import persistencia.Conexion;
 import Interfaz.frmUsuario;
 import entidades.Usuario;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import entidades.*;
 import negocio.*;
 import servicio.*;
+
 /**
  *
  * @author marcos_zr
@@ -19,12 +20,14 @@ import servicio.*;
 public class ProyectoECommerce {
 
     public static void main(String[] args) {
-        
+
         Conexion conex = new Conexion();
-        
+
         conex.getConexion();
         
+   
         
+
 //        ArrayList<Integer> productosEnCarrito = new ArrayList<>();
 //        
 //        productosEnCarrito.add(2);
@@ -46,6 +49,5 @@ public class ProyectoECommerce {
 //        
 //        System.out.println(pedidoObtenido.getIdPedido() + " " + pedidoObtenido.getFechaDePedido() + 
 //                " " + pedidoObtenido.getCantidad() + " " + pedidoObtenido.getIdUsuario());
-        
     }
 }
