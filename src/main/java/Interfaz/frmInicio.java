@@ -37,7 +37,6 @@ public class frmInicio extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/dportenis-portada.jpg"))); // NOI18N
 
-        btnCliente.setBackground(new java.awt.Color(102, 51, 255));
         btnCliente.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
         btnCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iniciar-sesion.png"))); // NOI18N
