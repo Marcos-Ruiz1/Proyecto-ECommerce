@@ -16,17 +16,27 @@ public class Usuarios {
         
     }
     
-    public void autentificarUsuario(Usuario usuario){
+    /**
+     * 
+     * @param usuario
+     * @return 
+     */
+    public boolean autentificarUsuario(Usuario usuario){
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        //Lógica de negocio: Todos los nombres deberán ser en minúscula
-        usuario.setNombre(usuario.getNombre().toLowerCase());
-        
         //Mandamos el usuario una vez aplicadas las reglas de negocio a la capa de persistencia
-        usuarioDAO.aunteticacion(usuario);
+        if(usuarioDAO.aunteticacion(usuario)){
+            return true;
+        }
+        
+        return false;
     }
     
+    /**
+     * 
+     * @param usuario 
+     */
     public void registrarUsuario(Usuario usuario){
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -36,6 +46,11 @@ public class Usuarios {
         
     }
     
+    /**
+     * 
+     * @param contrasena
+     * @return 
+     */
     public boolean validarContrasena(String contrasena){
         
         // La contraseña debe contener al menos una letra mayúscula, al menos un dígito,
@@ -53,11 +68,31 @@ public class Usuarios {
         return false;
     }
     
+    /**
+     * 
+     * @param idUsuario
+     * @return 
+     */
     public Usuario obtenerUsuario(int idUsuario){
         Usuario usuario = null;
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
         usuario = usuarioDAO.obtener(idUsuario);
+        
+        return usuario;
+    }
+    
+    /**
+     * 
+     * @param email
+     * @param contrasena
+     * @return 
+     */
+    public Usuario obtenerUsuario(String email, String contrasena){
+        Usuario usuario = null;
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        usuario = usuarioDAO.obtener(email, contrasena);
         
         return usuario;
     }

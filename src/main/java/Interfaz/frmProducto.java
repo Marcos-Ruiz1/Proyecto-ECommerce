@@ -4,6 +4,7 @@
  */
 package Interfaz;
 import entidades.Producto;
+import entidades.Usuario;
 import java.util.List;
 import java.util.ArrayList;
 import negocio.Productos;
@@ -15,14 +16,18 @@ import negocio.TMProducto;
  * @author gaspa
  */
 public class frmProducto extends javax.swing.JFrame {
+    
     private List<Producto> productos;
     private TMProducto modelo;
+    private Usuario usuario;
+    
     /**
-     * Creates new form frmProducto
+     * 
+     * @param usuario 
      */
-    public frmProducto() {
+    public frmProducto(Usuario usuario) {
         initComponents();
-        
+        this.usuario = usuario;
         productos = new ArrayList<>();
         productos.add(new Productos().obtenerProducto(1));
         productos.add(new Productos().obtenerProducto(2));
@@ -134,6 +139,7 @@ public class frmProducto extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

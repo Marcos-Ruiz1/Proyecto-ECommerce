@@ -15,16 +15,21 @@ public class UsuarioDAO extends Conexion{
         
     }
     
+    /**
+     * 
+     * @param usuario
+     * @return 
+     */
     public boolean aunteticacion(Usuario usuario){
-        usuario.getNombre();
+        
         PreparedStatement pst = null;
         ResultSet rs = null;
         
         try{
-            String consulta = "select usuarios.nombre from usuarios where nombre=?";
+            String consulta = "select usuarios.idUsuario from usuarios where idUsuario=?";
             System.out.println("Consulta es " + consulta);
             pst = getConexion().prepareStatement(consulta);
-            pst.setString(1, usuario.getNombre());
+            pst.setInt(1, usuario.getIdUsuario());
        
             rs = pst.executeQuery();
             
@@ -51,6 +56,11 @@ public class UsuarioDAO extends Conexion{
         return false;
     }
     
+    /**
+     * 
+     * @param usuario
+     * @return 
+     */
     public boolean registrar(Usuario usuario){
         PreparedStatement pst = null;
       
@@ -83,7 +93,11 @@ public class UsuarioDAO extends Conexion{
         return false;
     }
     
-    
+    /**
+     * 
+     * @param idUsuario
+     * @return 
+     */
     public Usuario obtener(int idUsuario) {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -91,7 +105,7 @@ public class UsuarioDAO extends Conexion{
 
         try {
            
-            String consulta = "SELECT * FROM productos WHERE idUsuario = ?";
+            String consulta = "SELECT * FROM usuarios WHERE idUsuario = ?";
             pst = getConexion().prepareStatement(consulta);
             pst.setInt(1, idUsuario);
             rs = pst.executeQuery();
@@ -106,6 +120,50 @@ public class UsuarioDAO extends Conexion{
                 String contrasena = rs.getString("contrasena");
 
                 usuario = new Usuario(nombre, contrasena, email, telefono, direccion);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            try{
+                if(getConexion() != null) getConexion().close();
+                if(pst != null) pst.close();
+            } catch(Exception e){
+                System.out.println("Error en " + e);
+            }
+        }
+
+        return usuario;
+    }
+    
+    /**
+     * 
+     * @param email
+     * @param contrasena
+     * @return 
+     */
+    public Usuario obtener(String email, String contrasena) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Usuario usuario = null;
+
+        try {
+           
+            String consulta = "SELECT * FROM usuarios WHERE email=? AND contrasena=?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, email);
+            pst.setString(2, contrasena);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Obtener datos del resultado y crear un objeto Usuario
+                int id = rs.getInt("idUsuario");
+                String nombre = rs.getString("nombre");
+                String correo = rs.getString("email");
+                String telefono = rs.getString("telefono");
+                String direccion = rs.getString("direccion");
+                String password = rs.getString("contrasena");
+               
+                usuario = new Usuario(id, nombre, password, correo, telefono, direccion);
             }
         } catch (SQLException e) {
             e.printStackTrace();
