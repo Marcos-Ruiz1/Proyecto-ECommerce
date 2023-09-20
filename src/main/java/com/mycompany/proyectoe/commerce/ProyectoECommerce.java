@@ -1,6 +1,7 @@
 package com.mycompany.proyectoe.commerce;
 
 import Interfaz.frmInicio;
+import Interfaz.frmLogin;
 import persistencia.Conexion;
 import Interfaz.frmUsuario;
 import entidades.Usuario;
@@ -21,12 +22,16 @@ public class ProyectoECommerce {
 
     public static void main(String[] args) {
 
-        Conexion conex = new Conexion();
-
-        conex.getConexion();
-        
-   
-        
+//        Conexion conex = new Conexion();
+//
+//        conex.getConexion();
+//        
+//frmLogin log = new frmLogin();
+//log.setVisible(true);
+//
+   frmInicio home = new frmInicio();
+   home.setVisible(true);
+//        
 
 //        ArrayList<Integer> productosEnCarrito = new ArrayList<>();
 //        
