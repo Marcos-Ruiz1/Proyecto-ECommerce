@@ -4,8 +4,9 @@ import entidades.Pedido;
 import entidades.Producto;
 import persistencia.PedidoDAO;
 import servicio.Fecha;
+import java.util.ArrayList;
+import java.util.List;
 
-//import persistencia.;
 /**
  *
  * @author marcos_zr
@@ -45,6 +46,22 @@ public class Pedidos {
         pedido = pedidoDAO.obtener(idUsuario, fecha);
         
         return pedido;
+    }
+    
+    /**
+     * Método obtenerPedidos que recibe como parámetro el id del usuario para conectarse con la capa de persistencia.
+     * Regresa la lista de pedidos obtenidos de la capa de persistencia
+     * @param idUsuario el identificador del usuario en la base de datos
+     * @return la lista de pedidos del usuario
+     */
+    public List<Pedido> obtenerPedidos(int idUsuario){
+        List<Pedido> pedidos = null;
+        
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        pedidos = pedidoDAO.obtenerPedidos(idUsuario);
+        
+        return pedidos;
+        
     }
     
     

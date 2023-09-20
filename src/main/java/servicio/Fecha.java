@@ -1,51 +1,63 @@
 
 package servicio;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Fecha {
-    private LocalDate fecha;
+    private LocalDateTime fechaHora;
 
-    public Fecha(){
-        
-    }
-    
-    public Fecha(int dia, int mes, int año) {
-        this.fecha = LocalDate.of(año, mes, dia);
+    public Fecha() {
+        fechaHora = LocalDateTime.now();
     }
 
     public int getDia() {
-        return fecha.getDayOfMonth();
+        return fechaHora.getDayOfMonth();
     }
 
     public int getMes() {
-        return fecha.getMonthValue();
+        return fechaHora.getMonthValue();
     }
 
     public int getAño() {
-        return fecha.getYear();
+        return fechaHora.getYear();
+    }
+
+    public int getHora() {
+        return fechaHora.getHour();
+    }
+
+    public int getMinutos() {
+        return fechaHora.getMinute();
     }
 
     public void setDia(int dia) {
-        fecha = fecha.withDayOfMonth(dia);
+        fechaHora = fechaHora.withDayOfMonth(dia);
     }
 
     public void setMes(int mes) {
-        fecha = fecha.withMonth(mes);
+        fechaHora = fechaHora.withMonth(mes);
     }
 
     public void setAño(int año) {
-        fecha = fecha.withYear(año);
+        fechaHora = fechaHora.withYear(año);
     }
 
-    public String getFecha(){
-        
-        return (getAño() + "-" + getMes() + "-" + getDia());
+    public void setHora(int hora) {
+        fechaHora = fechaHora.withHour(hora);
     }
-    
+
+    public void setMinutos(int minutos) {
+        fechaHora = fechaHora.withMinute(minutos);
+    }
+
+    public String getFechaHora() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        return fechaHora.format(formatter);
+    }
+
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return fecha.format(formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        return fechaHora.format(formatter);
     }
 }

@@ -25,6 +25,7 @@ public class frmProducto extends javax.swing.JFrame {
         
         productos = new ArrayList<>();
         productos.add(new Productos().obtenerProducto(1));
+        productos.add(new Productos().obtenerProducto(2));
         modelo= new TMProducto(productos);
         
         jTable1.setModel(modelo);

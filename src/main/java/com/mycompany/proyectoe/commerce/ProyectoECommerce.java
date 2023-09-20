@@ -26,12 +26,8 @@ public class ProyectoECommerce {
 //
 //        conex.getConexion();
 //        
-//frmLogin log = new frmLogin();
-//log.setVisible(true);
-//
-   frmInicio home = new frmInicio();
-   home.setVisible(true);
-//        
+    frmInicio log = new frmInicio();
+    log.setVisible(true);     
 
 //        ArrayList<Integer> productosEnCarrito = new ArrayList<>();
 //        
