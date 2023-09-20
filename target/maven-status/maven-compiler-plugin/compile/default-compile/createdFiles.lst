@@ -3,6 +3,7 @@ Interfaz\frmUsuario$1.class
 Interfaz\frmLogin$4.class
 Interfaz\frmPedido$1.class
 com\mycompany\proyectoe\commerce\ProyectoECommerce.class
+<<<<<<< HEAD
 negocio\Pedidos.class
 Interfaz\frmCarrito$1.class
 negocio\Usuarios.class
@@ -27,6 +28,14 @@ entidades\Pedido.class
 negocio\Productos.class
 Interfaz\frmInicio$2.class
 Interfaz\frmUsuario.class
+=======
+Interfaz\frmCarrito$1.class
+Interfaz\frmProducto$1.class
+Interfaz\frmProducto$2.class
+Interfaz\frmCarrito$2.class
+negocio\TMProducto.class
+Interfaz\frmCarrito.class
+>>>>>>> 069c31a9811f79905f376757eef6cea4a1d77c26
 Interfaz\frmPedido$2.class
 persistencia\ProductoDAO.class
 servicio\Fecha.class
