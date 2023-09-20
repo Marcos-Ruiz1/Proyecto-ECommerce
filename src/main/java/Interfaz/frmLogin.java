@@ -40,7 +40,6 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setText("Dportenis");
 
         btnInicioSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnInicioSesion.setIcon(new javax.swing.ImageIcon("E:\\ITSON\\ISW\\7mo semestre\\Base de datos Avanzada\\toolbar\\Home2.png")); // NOI18N
         btnInicioSesion.setText("Iniciar sesión");
         btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,13 +48,12 @@ public class frmLogin extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel2.setText("USUARIO");
+        jLabel2.setText("EMAIL");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("CONTRASEÑA");
 
         btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnRegistrar.setIcon(new javax.swing.ImageIcon("E:\\ITSON\\ISW\\7mo semestre\\Base de datos Avanzada\\toolbar\\Floppy.png")); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -110,6 +110,7 @@ public class frmInicio extends javax.swing.JFrame {
 
         frmLogin log = new frmLogin();
         log.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_btnClienteActionPerformed
 
@@ -117,6 +118,7 @@ public class frmInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         frmUsuario usuario = new frmUsuario();
         usuario.setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
