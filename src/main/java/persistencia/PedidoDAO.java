@@ -1,5 +1,5 @@
-
 package persistencia;
+
 import servicio.Fecha;
 import entidades.Pedido;
 import java.util.List;
@@ -7,52 +7,68 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 /**
  *
- * @author marcos_zr
+ * @author Equipo2
  */
-public class PedidoDAO extends Conexion{
-    
-    
-    public boolean registrar(Pedido pedido){
+public class PedidoDAO extends Conexion {
+
+    /**
+     * Registra un pedido en la base de datos.
+     *
+     * @param pedido El pedido a registrar.
+     * @return true si el pedido se registra con éxito, false en caso contrario.
+     */
+    public boolean registrar(Pedido pedido) {
         PreparedStatement pst = null;
-      
-        try{
+
+        try {
             String consulta = "INSERT INTO pedidos (fechaDePedido, cantidad, idUsuario) VALUES (?, ?, ?)";
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, pedido.getFechaDePedido());
             pst.setFloat(2, pedido.getCantidad());
             pst.setInt(3, pedido.getIdUsuario());
-            
-            
-            
-            if(pst.executeUpdate() == 1){
+
+            if (pst.executeUpdate() == 1) {
                 System.out.println("Pedido registrado con exito");
                 return true;
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Error en " + e);
-        }finally{
-            try{
-                if(getConexion() != null) getConexion().close();
-                if(pst != null) pst.close();
-            } catch(Exception e){
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
                 System.out.println("Error en " + e);
             }
         }
-        
+
         System.out.println("Pedido no registrado con exito");
         return false;
     }
-    
-    
+
+    /**
+     * Obtiene un pedido de la base de datos según el ID de usuario y la fecha
+     * de pedido.
+     *
+     * @param idUsuario El ID del usuario asociado al pedido.
+     * @param fecha La fecha de pedido.
+     * @return Un objeto Pedido si se encuentra en la base de datos, o null si
+     * no se encuentra.
+     */
     public Pedido obtener(int idUsuario, Fecha fecha) {
         PreparedStatement pst = null;
         ResultSet rs = null;
         Pedido pedido = null;
 
         try {
-           
+
             String consulta = "SELECT * FROM Pedidos WHERE idUsuario = ? AND fechaDePedido=?";
             pst = getConexion().prepareStatement(consulta);
             pst.setInt(1, idUsuario);
@@ -70,21 +86,27 @@ public class PedidoDAO extends Conexion{
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally{
-            try{
-                if(getConexion() != null) getConexion().close();
-                if(pst != null) pst.close();
-            } catch(Exception e){
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
                 System.out.println("Error en " + e);
             }
         }
 
         return pedido;
     }
-    
+
     /**
-     * Método obtenerPedidos que recibe como parámetro el id del usuario y para realizar una consulta con la base
-     * de datos. Regresa una lista de pedidos que tiene el usuario
+     * Método obtenerPedidos que recibe como parámetro el id del usuario y para
+     * realizar una consulta con la base de datos. Regresa una lista de pedidos
+     * que tiene el usuario
+     *
      * @param idUsuario el identificador del usuario en la base de datos
      * @return la lista de pedidos del usuario
      */
@@ -100,7 +122,7 @@ public class PedidoDAO extends Conexion{
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                
+
                 int id = rs.getInt("idPedido");
                 String fechaDePedido = rs.getString("fechaDePedido");
                 float cantidad = rs.getFloat("cantidad");
@@ -125,6 +147,5 @@ public class PedidoDAO extends Conexion{
 
         return pedidos;
     }
-
 
 }

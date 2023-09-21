@@ -1,14 +1,13 @@
-
 package Interfaz;
 
 /**
  *
- * @author cocob
+ * @author Equipo2
  */
 public class frmPedido extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmPedido
+     * Constructor de la clase frmPedido
      */
     public frmPedido() {
         initComponents();

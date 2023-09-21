@@ -6,18 +6,19 @@ package Interfaz;
 
 import Interfaz.frmLogin;
 import Interfaz.frmUsuario;
+
 /**
  *
- * @author cocob
+ * @author Equipo2
  */
 public class frmInicio extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmInicio
+     * Constructor de la clase frmInicio
      */
     public frmInicio() {
         initComponents();
-        
+
     }
 
     /**
@@ -106,14 +107,27 @@ public class frmInicio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja el evento de clic en el botón "Cliente". Crea una nueva instancia
+     * de frmLogin, la hace visible y oculta la ventana actual.
+     *
+     * @param evt El evento de acción que desencadena este método.
+     */
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
 
         frmLogin log = new frmLogin();
         log.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_btnClienteActionPerformed
 
+    /**
+     * Maneja el evento de clic en el botón "Registro". Crea una nueva instancia
+     * de la ventana de registro de usuario (frmUsuario), la hace visible y
+     * configura el cierre de la ventana actual antes de ocultarla.
+     *
+     * @param evt El evento de acción que desencadena este método.
+     */
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         // TODO add your handling code here:
         frmUsuario usuario = new frmUsuario();

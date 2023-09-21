@@ -4,6 +4,8 @@ Interfaz\frmPedidos.class
 negocio\TMCarrito.class
 Interfaz\frmPedido$1.class
 com\mycompany\proyectoe\commerce\ProyectoECommerce.class
+negocio\Pedidos.class
+Interfaz\frmCarrito$1.class
 negocio\Usuarios.class
 Interfaz\frmProducto$1.class
 Interfaz\frmProducto$2.class
@@ -14,12 +16,14 @@ entidades\Carrito.class
 persistencia\UsuarioDAO.class
 Interfaz\frmLogin$2.class
 persistencia\PedidoDAO.class
+negocio\Carritos.class
 negocio\TMProducto.class
 Interfaz\frmPedido.class
 persistencia\CarritoDAO.class
 negocio\TMPedido.class
 Interfaz\frmPedidos$1.class
 Interfaz\frmLogin.class
+Interfaz\frmCarrito.class
 Interfaz\frmInicio.class
 entidades\Pedido.class
 negocio\Productos.class

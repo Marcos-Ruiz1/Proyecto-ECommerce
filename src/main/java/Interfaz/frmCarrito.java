@@ -1,5 +1,5 @@
-
 package Interfaz;
+
 import entidades.Carrito;
 import entidades.Producto;
 import entidades.Usuario;
@@ -9,7 +9,7 @@ import negocio.TMCarrito;
 
 /**
  *
- * @author gaspa
+ * @author Equipo2
  */
 public class frmCarrito extends javax.swing.JFrame {
 
@@ -18,21 +18,20 @@ public class frmCarrito extends javax.swing.JFrame {
     private TMCarrito modelo;
     private List<Producto> productoLista;
     private List<Carrito> carritoLista;
-    
-    
+
     /**
-     * Creates new form frmCarrito
+     * Constructor de la clase frmCarrito. Inicializa y configura el formulario.
      */
     public frmCarrito() {
         initComponents();
-        
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
-     * Método constructor que inicializa la ventana del carrito con el carrito de compra y el usuario que hizo
-     * log in
-     * 
+     * Método constructor que inicializa la ventana del carrito con el carrito
+     * de compra y el usuario que hizo log in
+     *
      * @param producto
      * @param usuario el usuario que hizo log in
      */
@@ -43,8 +42,9 @@ public class frmCarrito extends javax.swing.JFrame {
         carritoLista.add(carrito);
         modelo = new TMCarrito(carritoLista, productoLista);
         jTable1.setModel(modelo);
-       
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
