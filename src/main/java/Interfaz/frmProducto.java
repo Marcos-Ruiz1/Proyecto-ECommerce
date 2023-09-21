@@ -131,8 +131,9 @@ public class frmProducto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonPedidos)
-                        .addGap(212, 212, 212)
-                        .addComponent(botonCarrito)))
+                        .addGap(86, 86, 86)
+                        .addComponent(botonCarrito)
+                        .addGap(126, 126, 126)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -214,6 +215,7 @@ public class frmProducto extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Error: campos vacío, escribe un id de algún producto", "Error ingreso de id del producto", HEIGHT);
         }
+
 
     }//GEN-LAST:event_botonAgregarActionPerformed
 

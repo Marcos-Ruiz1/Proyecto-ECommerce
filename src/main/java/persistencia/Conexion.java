@@ -13,13 +13,14 @@ import java.sql.SQLException;
  * @author Equipo 2
  */
 public class Conexion {
-    private String USERNAME="root";
-    private String PASSWORD="1234";
-    private String HOST="localhost";
-    private String PORT="3306";
-    private String DATABASE="eCommerce";
-    private String CLASSNAME="com.mysql.cj.jdbc.Driver";
-    private String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+
+    private String USERNAME = "root";
+    private String PASSWORD = "1234";
+    private String HOST = "localhost";
+    private String PORT = "3306";
+    private String DATABASE = "ecommerce";
+    private String CLASSNAME = "com.mysql.cj.jdbc.Driver";
+    private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
     protected Connection con;
 
 

@@ -9,6 +9,7 @@ import negocio.Carritos;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import negocio.TMCarrito;
 import servicio.Fecha;
 
@@ -21,7 +22,7 @@ public class frmCarrito extends javax.swing.JFrame {
     private Carrito carrito;
     private Usuario usuario;
     private TMCarrito modelo;
-    private List<Producto> productoLista = new ArrayList<>();
+    private ArrayList<Producto> productoLista = new ArrayList<>();
     private float suma = 0.0f;
     private List<Carrito> carritoLista ;
     
@@ -67,6 +68,7 @@ public class frmCarrito extends javax.swing.JFrame {
         campoTextoTotal.setText(String.valueOf(this.suma));
        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,7 +84,7 @@ public class frmCarrito extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         volverButton = new javax.swing.JButton();
         botonPagar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        eliminarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         campoTextoTotal = new javax.swing.JTextField();
 
@@ -118,10 +120,16 @@ public class frmCarrito extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Eliminar");
+        eliminarButton.setText("Eliminar");
+        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Total: $");
 
+        campoTextoTotal.setEditable(false);
         campoTextoTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTextoTotalActionPerformed(evt);
@@ -136,7 +144,7 @@ public class frmCarrito extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(jLabel2)
@@ -144,8 +152,8 @@ public class frmCarrito extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(volverButton)
-                        .addGap(85, 85, 85)
-                        .addComponent(jButton1)
+                        .addGap(77, 77, 77)
+                        .addComponent(eliminarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonPagar)))
                 .addContainerGap())
@@ -171,7 +179,7 @@ public class frmCarrito extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volverButton)
                     .addComponent(botonPagar)
-                    .addComponent(jButton1))
+                    .addComponent(eliminarButton))
                 .addContainerGap())
         );
 
@@ -179,7 +187,7 @@ public class frmCarrito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
         
     }//GEN-LAST:event_volverButtonActionPerformed
 
@@ -195,25 +203,47 @@ public class frmCarrito extends javax.swing.JFrame {
         Pedidos negocioPedido = new Pedidos();
         
         
-        negocioPedido.registrarPedido(pedido);
-        Pedido pedidoProducto = negocioPedido.obtenerPedido(this.usuario.getIdUsuario());
-        Carritos negocioCarrito = new Carritos();
-        this.carrito.setIdPedido(pedidoProducto.getIdPedido());
-        this.carrito.setIdUsuario(this.usuario.getIdUsuario());
-        negocioCarrito.registrarCarrito(this.carrito);
-        
-        this.suma = 0.0f;
-        this.setVisible(false);
-        System.out.println("pedido registrado");
+        if(this.suma==0){
+            JOptionPane.showMessageDialog(null, "Error: No existen productos en el carrito", "Error", JOptionPane.INFORMATION_MESSAGE); 
+
+        }
+        else{
+            negocioPedido.registrarPedido(pedido);
+            Pedido pedidoProducto = negocioPedido.obtenerPedido(this.usuario.getIdUsuario());
+            Carritos negocioCarrito = new Carritos();
+            this.carrito.setIdPedido(pedidoProducto.getIdPedido());
+            this.carrito.setIdUsuario(this.usuario.getIdUsuario());
+            negocioCarrito.registrarCarrito(this.carrito);
+            this.suma = 0.0f;
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Pedido registrado", "Exito", JOptionPane.INFORMATION_MESSAGE); 
+            System.out.println("pedido registrado");
+
+        }
         
         this.carrito.getIdProducto().clear();
+        
     }//GEN-LAST:event_botonPagarActionPerformed
+
+    private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
+            try {
+            carrito.getIdProducto().remove(jTable1.getSelectedRow());
+            JOptionPane.showMessageDialog(null, "Se elimino el producto al carrito con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Error: No existe el producto seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE); 
+        }
+            
+            
+            frmCarrito carritoVentana = new frmCarrito(this.carrito, this.usuario);
+            this.dispose();
+            carritoVentana.setVisible(true);
+    }//GEN-LAST:event_eliminarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonPagar;
     private javax.swing.JTextField campoTextoTotal;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton eliminarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

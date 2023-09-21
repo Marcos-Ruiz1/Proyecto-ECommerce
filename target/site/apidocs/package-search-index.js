@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.mycompany.proyectoe.commerce"},{"l":"entidades"},{"l":"Interfaz"},{"l":"negocio"},{"l":"persistencia"},{"l":"servicio"}];updateSearchResults();

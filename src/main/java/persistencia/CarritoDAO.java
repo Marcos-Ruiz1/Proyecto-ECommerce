@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package persistencia;
 import entidades.Carrito;
 import java.sql.PreparedStatement;
@@ -26,12 +23,15 @@ public class CarritoDAO extends Conexion{
     public boolean registrar(Carrito carrito){
         PreparedStatement pst = null;
       
+        
         try{
+            getConexion().setAutoCommit(false);
+            
             String consulta = "INSERT INTO ProductosPedidos(idPedido, idProducto) VALUES (?, ?)";
             pst = getConexion().prepareStatement(consulta);
             
             for (Integer idProducto : carrito.getIdProducto()) {
-                pst.setInt(1, carrito.getIdUsuario());
+                pst.setInt(1, carrito.getIdPedido());
                 pst.setInt(2, idProducto);
                 pst.addBatch(); // Agregar la consulta al lote
             }
