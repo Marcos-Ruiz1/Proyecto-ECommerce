@@ -6,24 +6,23 @@ package negocio;
 import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
-import entidades.Carrito;
 import entidades.Producto;
-import java.util.ArrayList;
 /**
  *
  * @author gaspa
  */
 public class TMCarrito implements TableModel{
-    private List<Carrito> carrito;
+//    private List<Carrito> carrito;
     private List<Producto> producto;
     
-    public TMCarrito(List <Carrito> listaC, List <Producto> listaP){
-        carrito=listaC;
+    public TMCarrito(/*List <Carrito> listaC, */List <Producto> listaP){
+//        carrito=listaC;
         producto=listaP;
     }
     @Override
     public int getRowCount() {
-        return carrito.size();
+//        return carrito.size();
+          return producto.size();
     }
 
     @Override
@@ -36,15 +35,15 @@ public class TMCarrito implements TableModel{
         String titulo=null;
         switch(columnIndex){
             case 0:{
-                titulo = "Producto";
+                titulo = "id";
                 break;
             }
             case 1:{
-                titulo = "Precio";
+                titulo = "Producto";
                 break;
             }
             case 2:{
-                titulo = "Cantidad";
+                titulo = "Precio";
                 break;
             }
         }
@@ -55,10 +54,10 @@ public class TMCarrito implements TableModel{
     public Class<?> getColumnClass(int columnIndex) {
         switch(columnIndex){
             case 0:{
-                return String.class;
+                return int.class;
             }
             case 1:{
-                return int.class;
+                return String.class;
             }
             case 2:{
                 return int.class;
@@ -74,20 +73,21 @@ public class TMCarrito implements TableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Carrito c = carrito.get(rowIndex);
+//        Carrito c = carrito.get(rowIndex);
         Producto p = producto.get(rowIndex);
-        int cantidad =0;
+        
         switch(columnIndex){
             case 0 -> {
-                return p.getNombre();
+                
+                return p.getIdProducto();
                 
             }
             case 1 -> {
-                return p.getPrecio();
+                return p.getNombre();
                 
             }
             case 2 -> {
-                return cantidad;
+                return p.getPrecio();
                 
             }
         }
@@ -96,19 +96,17 @@ public class TMCarrito implements TableModel{
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Carrito c = carrito.get(rowIndex);
+//        Carrito c = carrito.get(rowIndex);
         Producto p = producto.get(rowIndex);
         switch(columnIndex){
             case 0 -> {
-                p.setNombre((String)aValue);
-                
+                p.setIdProducto((int)aValue);
             }
             case 1 -> {
-                p.setPrecio((int)aValue);
-                
+                p.setNombre((String)aValue);
             }
             case 2 -> {
-                
+                p.setPrecio((int)aValue);
             }
         }
     }
@@ -120,5 +118,7 @@ public class TMCarrito implements TableModel{
     @Override
     public void removeTableModelListener(TableModelListener l) {
     }
+    
+    
     
 }

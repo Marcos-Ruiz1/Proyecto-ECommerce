@@ -2,10 +2,20 @@ package Interfaz;
 
 import entidades.Carrito;
 import entidades.Producto;
+import entidades.Pedido;
+import negocio.Pedidos;
+import negocio.Productos;
 import entidades.Usuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import negocio.TMCarrito;
+import persistencia.Conexion;
+import servicio.Fecha;
 
 /**
  *
@@ -16,9 +26,11 @@ public class frmCarrito extends javax.swing.JFrame {
     private Carrito carrito;
     private Usuario usuario;
     private TMCarrito modelo;
-    private List<Producto> productoLista;
-    private List<Carrito> carritoLista;
-
+    private ArrayList<Producto> productoLista = new ArrayList<>();
+    private float suma = 0.0f;
+    private List<Carrito> carritoLista ;
+    
+    
     /**
      * Constructor de la clase frmCarrito. Inicializa y configura el formulario.
      */
@@ -35,15 +47,32 @@ public class frmCarrito extends javax.swing.JFrame {
      * @param producto
      * @param usuario el usuario que hizo log in
      */
-    public frmCarrito(List<Producto> producto, Usuario usuario) {
+    public frmCarrito(Carrito carrito, Usuario usuario) {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        this.productoLista=producto;
-        carritoLista.add(carrito);
-        modelo = new TMCarrito(carritoLista, productoLista);
-        jTable1.setModel(modelo);
+        //productoLista.add(producto);
+        this.carrito = carrito;
+        this.usuario = usuario;
+        Producto producto = null;
+        Productos negocioProductos = new Productos();
+        
+        for (int i = 0; i < this.carrito.getIdProducto().size(); i++) {
+            int idProducto = this.carrito.getIdProducto().get(i);
+            
+            System.out.println("ID del producto: " + idProducto);
+            producto = negocioProductos.obtenerProducto(idProducto);
+            
+            productoLista.add(producto);
+            this.suma = this.suma + producto.getPrecio();
+        }
 
+        modelo = new TMCarrito(/*carritoLista,*/ productoLista);
+        jTable1.setModel(modelo);
+        
+        campoTextoTotal.setText(String.valueOf(this.suma));
+       
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +88,9 @@ public class frmCarrito extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         volverButton = new javax.swing.JButton();
         botonPagar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        eliminarButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        campoTextoTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +118,27 @@ public class frmCarrito extends javax.swing.JFrame {
         });
 
         botonPagar.setText("Pagar");
+        botonPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPagarActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Eliminar");
+        eliminarButton.setText("Eliminar");
+        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Total: $");
+
+        campoTextoTotal.setEditable(false);
+        campoTextoTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTextoTotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +148,7 @@ public class frmCarrito extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(jLabel2)
@@ -106,11 +156,17 @@ public class frmCarrito extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(volverButton)
-                        .addGap(85, 85, 85)
-                        .addComponent(jButton1)
+                        .addGap(77, 77, 77)
+                        .addComponent(eliminarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonPagar)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,11 +175,15 @@ public class frmCarrito extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volverButton)
                     .addComponent(botonPagar)
-                    .addComponent(jButton1))
+                    .addComponent(eliminarButton))
                 .addContainerGap())
         );
 
@@ -131,14 +191,67 @@ public class frmCarrito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
         
     }//GEN-LAST:event_volverButtonActionPerformed
+
+    private void campoTextoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoTotalActionPerformed
+//        // TODO add your handling code here:
+//        for (int i = 0; i < this.carrito.getIdProducto().size(); i++) {
+//            int idProducto = this.carrito.getIdProducto().get(i);
+//            
+//            System.out.println("ID del producto: " + idProducto);
+//            producto = negocioProductos.obtenerProducto(idProducto);
+//            
+//          
+//        }
+        
+    }//GEN-LAST:event_campoTextoTotalActionPerformed
+
+    private void botonPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPagarActionPerformed
+        // TODO add your handling code here:
+        
+        Pedido pedido = new Pedido(new Fecha().toString() , this.suma, this.usuario.getIdUsuario(), this.carrito);
+        Pedidos negocioPedido = new Pedidos();
+        if(this.suma==0){
+            JOptionPane.showMessageDialog(null, "Error: No existen productos en el carrito", "Error", JOptionPane.INFORMATION_MESSAGE); 
+
+        }
+        else{
+            negocioPedido.registrarPedido(pedido);
+            this.suma = 0.0f;
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Pedido registrado", "Exito", JOptionPane.INFORMATION_MESSAGE); 
+            System.out.println("pedido registrado");
+
+        }
+//        negocioPedido.obtenerPedidos(this.usuario.getIdUsuario());
+        
+        
+        this.carrito.getIdProducto().clear();
+        
+    }//GEN-LAST:event_botonPagarActionPerformed
+
+    private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
+            try {
+            carrito.getIdProducto().remove(jTable1.getSelectedRow());
+            JOptionPane.showMessageDialog(null, "Se elimino el producto al carrito con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Error: No existe el producto seleccionado", "Error", JOptionPane.INFORMATION_MESSAGE); 
+        }
+            
+            
+            frmCarrito carritoVentana = new frmCarrito(this.carrito, this.usuario);
+            this.dispose();
+            carritoVentana.setVisible(true);
+    }//GEN-LAST:event_eliminarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonPagar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField campoTextoTotal;
+    private javax.swing.JButton eliminarButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
