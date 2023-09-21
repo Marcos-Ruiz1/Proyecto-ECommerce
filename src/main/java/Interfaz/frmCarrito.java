@@ -2,10 +2,14 @@
 package Interfaz;
 import entidades.Carrito;
 import entidades.Producto;
+import entidades.Pedido;
+import negocio.Pedidos;
+import negocio.Productos;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.TMCarrito;
+import servicio.Fecha;
 
 /**
  *
@@ -16,8 +20,9 @@ public class frmCarrito extends javax.swing.JFrame {
     private Carrito carrito;
     private Usuario usuario;
     private TMCarrito modelo;
-    private List<Producto> productoLista;
-    private List<Carrito> carritoLista;
+    private List<Producto> productoLista = new ArrayList<>();
+    private float suma = 0.0f;
+    private List<Carrito> carritoLista ;
     
     
     /**
@@ -36,13 +41,29 @@ public class frmCarrito extends javax.swing.JFrame {
      * @param producto
      * @param usuario el usuario que hizo log in
      */
-    public frmCarrito(List<Producto> producto, Usuario usuario) {
+    public frmCarrito(Carrito carrito, Usuario usuario) {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         //productoLista.add(producto);
-        carritoLista.add(carrito);
-        modelo = new TMCarrito(carritoLista, productoLista);
+        this.carrito = carrito;
+        this.usuario = usuario;
+        Producto producto = null;
+        Productos negocioProductos = new Productos();
+        
+        for (int i = 0; i < this.carrito.getIdProducto().size(); i++) {
+            int idProducto = this.carrito.getIdProducto().get(i);
+            
+            System.out.println("ID del producto: " + idProducto);
+            producto = negocioProductos.obtenerProducto(idProducto);
+            
+            productoLista.add(producto);
+            this.suma = this.suma + producto.getPrecio();
+        }
+
+        modelo = new TMCarrito(/*carritoLista,*/ productoLista);
         jTable1.setModel(modelo);
+        
+        campoTextoTotal.setText(String.valueOf(this.suma));
        
     }
     /**
@@ -60,6 +81,8 @@ public class frmCarrito extends javax.swing.JFrame {
         volverButton = new javax.swing.JButton();
         botonPagar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        campoTextoTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +110,21 @@ public class frmCarrito extends javax.swing.JFrame {
         });
 
         botonPagar.setText("Pagar");
+        botonPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPagarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Eliminar");
+
+        jLabel1.setText("Total: $");
+
+        campoTextoTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTextoTotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +147,12 @@ public class frmCarrito extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonPagar)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +161,11 @@ public class frmCarrito extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volverButton)
                     .addComponent(botonPagar)
@@ -134,10 +180,39 @@ public class frmCarrito extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_volverButtonActionPerformed
 
+    private void campoTextoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoTotalActionPerformed
+//        // TODO add your handling code here:
+//        for (int i = 0; i < this.carrito.getIdProducto().size(); i++) {
+//            int idProducto = this.carrito.getIdProducto().get(i);
+//            
+//            System.out.println("ID del producto: " + idProducto);
+//            producto = negocioProductos.obtenerProducto(idProducto);
+//            
+//          
+//        }
+        
+    }//GEN-LAST:event_campoTextoTotalActionPerformed
+
+    private void botonPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPagarActionPerformed
+        // TODO add your handling code here:
+        
+        Pedido pedido = new Pedido(new Fecha().toString() , this.suma, this.usuario.getIdUsuario(), this.carrito);
+        Pedidos negocioPedido = new Pedidos();
+        
+        negocioPedido.registrarPedido(pedido);
+//        negocioPedido.obtenerPedidos(this.usuario.getIdUsuario());
+        this.suma = 0.0f;
+        this.setVisible(false);
+        System.out.println("pedido registrado");
+        this.carrito = null;
+    }//GEN-LAST:event_botonPagarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonPagar;
+    private javax.swing.JTextField campoTextoTotal;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

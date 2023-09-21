@@ -14,16 +14,17 @@ import java.util.ArrayList;
  * @author gaspa
  */
 public class TMCarrito implements TableModel{
-    private List<Carrito> carrito;
+//    private List<Carrito> carrito;
     private List<Producto> producto;
     
-    public TMCarrito(List <Carrito> listaC, List <Producto> listaP){
-        carrito=listaC;
+    public TMCarrito(/*List <Carrito> listaC, */List <Producto> listaP){
+//        carrito=listaC;
         producto=listaP;
     }
     @Override
     public int getRowCount() {
-        return carrito.size();
+//        return carrito.size();
+          return producto.size();
     }
 
     @Override
@@ -74,7 +75,7 @@ public class TMCarrito implements TableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Carrito c = carrito.get(rowIndex);
+//        Carrito c = carrito.get(rowIndex);
         Producto p = producto.get(rowIndex);
         int cantidad =0;
         switch(columnIndex){
@@ -96,7 +97,7 @@ public class TMCarrito implements TableModel{
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Carrito c = carrito.get(rowIndex);
+//        Carrito c = carrito.get(rowIndex);
         Producto p = producto.get(rowIndex);
         switch(columnIndex){
             case 0 -> {
