@@ -1,12 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 import entidades.Producto;
 import entidades.Usuario;
+import entidades.Carrito;
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import negocio.Productos;
 import negocio.TMProducto;
 
@@ -20,7 +20,7 @@ public class frmProducto extends javax.swing.JFrame {
     private List<Producto> productos;
     private TMProducto modelo;
     private Usuario usuario; //Objeto usuario que te traes desde la ventana de LogIn para utilizarlo en otros frames como el frmProducto o en frmPedidos
-    
+    private Carrito carrito = new Carrito();
     /**
      * Constructor frmProducto que inicializa los componentes de la ventana e inicializa el usuario con el que se inició
      * sesión
@@ -32,6 +32,14 @@ public class frmProducto extends javax.swing.JFrame {
         productos = new ArrayList<>();
         productos.add(new Productos().obtenerProducto(1));
         productos.add(new Productos().obtenerProducto(2));
+        productos.add(new Productos().obtenerProducto(3));
+        productos.add(new Productos().obtenerProducto(4));
+        productos.add(new Productos().obtenerProducto(5));
+        productos.add(new Productos().obtenerProducto(6));
+        productos.add(new Productos().obtenerProducto(7));
+        productos.add(new Productos().obtenerProducto(8));
+        productos.add(new Productos().obtenerProducto(9));
+        productos.add(new Productos().obtenerProducto(10));
         modelo= new TMProducto(productos);
         
         jTable1.setModel(modelo);
@@ -50,10 +58,11 @@ public class frmProducto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        campoTextoIdProducto = new javax.swing.JTextField();
+        botonCarrito = new javax.swing.JButton();
+        botonAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        botonPedidos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,24 +81,31 @@ public class frmProducto extends javax.swing.JFrame {
 
         jLabel1.setText("idProducto");
 
-        jTextField1.setColumns(5);
+        campoTextoIdProducto.setColumns(5);
 
-        jButton1.setText("Carrito");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonCarrito.setText("Carrito");
+        botonCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonCarritoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Agregar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregar.setText("Agregar");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonAgregarActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Productos");
+
+        botonPedidos.setText("Historial De Pedidos");
+        botonPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPedidosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,25 +114,27 @@ public class frmProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(campoTextoIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(botonPedidos)
+                        .addGap(212, 212, 212)
+                        .addComponent(botonCarrito)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(293, 293, 293)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
-                    .addComponent(jButton2)
-                    .addContainerGap(333, Short.MAX_VALUE)))
+                    .addComponent(botonAgregar)
+                    .addContainerGap(630, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,14 +146,16 @@ public class frmProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTextoIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCarrito)
+                    .addComponent(botonPedidos))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(280, Short.MAX_VALUE)
-                    .addComponent(jButton2)
+                    .addComponent(botonAgregar)
                     .addContainerGap()))
         );
 
@@ -143,23 +163,37 @@ public class frmProducto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCarritoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        frmCarrito carritoVentana = new frmCarrito(this.carrito, this.usuario);
+        carritoVentana.setVisible(true);
+    }//GEN-LAST:event_botonCarritoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        if(!campoTextoIdProducto.getText().trim().isEmpty()){
+            carrito.getIdProducto().add(Integer.valueOf(campoTextoIdProducto.getText()));
+        }else{
+          JOptionPane.showMessageDialog(null, "Error: campos vacío, escribe un id de algún producto", "Error ingreso de id del producto", HEIGHT);  
+        }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void botonPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPedidosActionPerformed
+        // TODO add your handling code here:
+        frmPedidos pedidosVentana = new frmPedidos(this.usuario);
+        pedidosVentana.setVisible(true);
+    }//GEN-LAST:event_botonPedidosActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonAgregar;
+    private javax.swing.JButton botonCarrito;
+    private javax.swing.JButton botonPedidos;
+    private javax.swing.JTextField campoTextoIdProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

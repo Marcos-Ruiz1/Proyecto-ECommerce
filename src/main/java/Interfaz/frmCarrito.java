@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Interfaz;
 
+package Interfaz;
+import entidades.Carrito;
+import entidades.Usuario;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +10,30 @@ import java.util.ArrayList;
  */
 public class frmCarrito extends javax.swing.JFrame {
 
+    private Carrito carrito;
+    private Usuario usuario;
     /**
      * Creates new form frmCarrito
      */
     public frmCarrito() {
         initComponents();
-        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Método constructor que inicializa la ventana del carrito con el carrito de compra y el usuario que hizo
+     * log in
+     * @param carrito el carrito de compra del usuario
+     * @param usuario el usuario que hizo log in
+     */
+    public frmCarrito(Carrito carrito, Usuario usuario) {
+        initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        
+        this.carrito = carrito;
+        this.usuario = usuario;
+       
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 import entidades.Pedido;
+import entidades.Usuario;
 import java.util.List;
 import java.util.ArrayList;
 import negocio.Pedidos;
@@ -16,14 +14,33 @@ public class frmPedidos extends javax.swing.JFrame {
 
     private List<Pedido> pedidos;
     private TMPedido modelo;
+    private Usuario usuario; 
+    
     /**
-     * Creates new form frmPedidos
+     * Método constructor sin parametros para iniciar los componentes del frame
      */
     public frmPedidos() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         
         pedidos = new ArrayList<>();
-        pedidos= new Pedidos().obtenerPedidos(13);
+        pedidos= new Pedidos().obtenerPedidos(this.usuario.getIdUsuario());
+        modelo= new TMPedido(pedidos);
+        
+        jTable1.setModel(modelo);
+    }
+    /**
+     * Método constructor que inicializa el frmPedidos con el usuario que se hizo login de parámetro
+     * @param usuario el usuario con el que se hizo log in 
+     */
+    public frmPedidos(Usuario usuario) {
+        initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        
+        this.usuario = usuario;
+        
+        pedidos = new ArrayList<>();
+        pedidos= new Pedidos().obtenerPedidos(this.usuario.getIdUsuario());
         modelo= new TMPedido(pedidos);
         
         jTable1.setModel(modelo);
@@ -81,6 +98,7 @@ public class frmPedidos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
