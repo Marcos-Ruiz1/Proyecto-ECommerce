@@ -126,7 +126,12 @@ public class frmLogin extends javax.swing.JFrame {
             productosVentana.setVisible(true);
             this.setVisible(false);
         }else{
-            JOptionPane.showMessageDialog(null, "Error: Email o contraseña incorrecta", "Error de inicio de sesión", HEIGHT);
+            if(campoTextoEmail.getText().trim().isEmpty() || contrasena.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error: campos vacíos", "Error de inicio de sesión", HEIGHT);
+            }else{
+                JOptionPane.showMessageDialog(null, "Error: Email o contraseña incorrecta", "Error de inicio de sesión", HEIGHT);
+            }
+           
         }
         
         

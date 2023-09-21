@@ -19,11 +19,12 @@ public class frmProducto extends javax.swing.JFrame {
     
     private List<Producto> productos;
     private TMProducto modelo;
-    private Usuario usuario;
+    private Usuario usuario; //Objeto usuario que te traes desde la ventana de LogIn para utilizarlo en otros frames como el frmProducto o en frmPedidos
     
     /**
-     * 
-     * @param usuario 
+     * Constructor frmProducto que inicializa los componentes de la ventana e inicializa el usuario con el que se inició
+     * sesión
+     * @param usuario el usuario con el que se inició sesión 
      */
     public frmProducto(Usuario usuario) {
         initComponents();

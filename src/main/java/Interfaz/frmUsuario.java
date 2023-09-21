@@ -4,9 +4,12 @@
  */
 package Interfaz;
 import entidades.Usuario;
+import Interfaz.frmLogin;
+import static java.awt.image.ImageObserver.HEIGHT;
 import negocio.Usuarios;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -164,21 +167,26 @@ public class frmUsuario extends javax.swing.JFrame {
         
             usuarioNuevo.setNombre(campoTextoNombre.getText());
             usuarioNuevo.setEmail(campoTextoEmail.getText());
-            usuarioNuevo.setContrasena(campoTextoContrasena.getText());
+            char[] contrasenaCaracter = campoTextoContrasena.getPassword();
+            String contrasenaString = new String(contrasenaCaracter);
+            usuarioNuevo.setContrasena(contrasenaString);
             usuarioNuevo.setTelefono(campoTextoTelefono.getText());
             usuarioNuevo.setDireccion(campoTextoDireccion.getText());
         
             if (campoTextoNombre.getText().trim().isEmpty() || campoTextoEmail.getText().trim().isEmpty() || 
-                campoTextoContrasena.getText().trim().isEmpty() || campoTextoTelefono.getText().trim().isEmpty()) {
-                System.out.println("Campos vacios, ingresa valores en los campos");
+                contrasenaString.trim().isEmpty() || campoTextoTelefono.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error: campos vacíos, ingrese valores en los campos de texto", "Error de registro de usuario", HEIGHT);
     
             } else {
                 if(usuarios.validarContrasena(usuarioNuevo.getContrasena())){
                     usuarios.registrarUsuario(usuarioNuevo);
+                    frmLogin loginVentana = new frmLogin();
+                    loginVentana.setVisible(true);
+                    this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    this.setVisible(false);
+                    
                 }else{
-                    System.out.println("La contraseña debe de contener almenos una letra mayuscula, almenos "
-                            + "un digito [0-9], debe contener almenos un caracter que no sea ni letra"
-                            + "ni digito y por último debe tener de 8 a 10 caracteres");
+                    JOptionPane.showMessageDialog(null, "Error: La contraseña debe de contener almenos una letra mayuscula, almenos un digito [0-9], \ndebe contener almenos un caracter que no sea ni letra ni digito\n y por último debe tener de 8 a 10 caracteres", "Error de ingreso de contraseña", HEIGHT);
                 }
                  
             
@@ -202,6 +210,8 @@ public class frmUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         frmLogin log = new frmLogin();
         log.setVisible(true);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setVisible(false);
         
     }//GEN-LAST:event_btnVolverActionPerformed
 

@@ -118,7 +118,8 @@ public class frmInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         frmUsuario usuario = new frmUsuario();
         usuario.setVisible(true);
-         this.setVisible(false);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
