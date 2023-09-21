@@ -195,7 +195,10 @@ public class frmCarrito extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_campoTextoTotalActionPerformed
-
+    /**
+     * Se verifica que el pago sea valido para agregarlo a pedidos.
+     * @param evt 
+     */
     private void botonPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPagarActionPerformed
         // TODO add your handling code here:
         
@@ -239,7 +242,9 @@ public class frmCarrito extends javax.swing.JFrame {
             carritoVentana.setVisible(true);
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
-
+/**
+ * Declaracion de variables
+ */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonPagar;
     private javax.swing.JTextField campoTextoTotal;

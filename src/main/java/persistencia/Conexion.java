@@ -21,6 +21,9 @@ public class Conexion {
     private String DATABASE = "ecommerce";
     private String CLASSNAME = "com.mysql.cj.jdbc.Driver";
     private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+    /**
+     * Atributo Conexion
+     */
     protected Connection con;
 
 

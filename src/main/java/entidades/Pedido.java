@@ -11,7 +11,9 @@ public class Pedido {
     private float cantidad;
     private int idUsuario;
     private Carrito carrito;
-    
+    /**
+     * Constructor vacio
+     */
     public Pedido(){
         
     }

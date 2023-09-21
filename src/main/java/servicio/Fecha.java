@@ -2,7 +2,10 @@ package servicio;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Clase encargada de las fechas
+ * @author Equipo 2
+ */
 public class Fecha {
 
     private LocalDateTime fechaHora;
