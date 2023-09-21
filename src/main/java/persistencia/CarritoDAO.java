@@ -8,14 +8,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 /**
  *
- * @author marcos_zr
+ * @author Equipo 2
  */
 public class CarritoDAO extends Conexion{
-    
+    /**
+     * Constructor vacio.
+     */
     public CarritoDAO(){
         
     }
-    
+    /**
+ * Registra los productos en el carrito en la base de datos.
+ *
+ * @param carrito El objeto de tipo Carrito que contiene los productos a registrar.
+ * @return true si la operación de registro fue exitosa, false en caso contrario.
+ */
     public boolean registrar(Carrito carrito){
         PreparedStatement pst = null;
       
@@ -58,6 +65,12 @@ public class CarritoDAO extends Conexion{
         return false;
     }
     
+   /**
+ * Obtiene un carrito de productos de la base de datos según algún criterio.
+ *
+ * @param carrito El objeto de tipo Carrito que contiene información sobre el carrito a buscar.
+ * @return El carrito de productos encontrado, o null si no se encuentra.
+ */
     public Carrito obtener(Carrito carrito){
         
         PreparedStatement pst = null;

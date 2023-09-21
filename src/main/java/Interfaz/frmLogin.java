@@ -1,11 +1,12 @@
-
 package Interfaz;
+
 import entidades.Usuario;
 import negocio.Usuarios;
 import javax.swing.JOptionPane;
+
 /**
  *
- * @author cocob
+ * @author Equipo 2
  */
 public class frmLogin extends javax.swing.JFrame {
 
@@ -112,31 +113,46 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Manejador de eventos para el botón "Inicio de Sesión". Se ejecuta cuando
+     * se hace clic en el botón. Intenta autenticar al usuario con el correo
+     * electrónico y contraseña proporcionados. Abre una nueva ventana de
+     * productos si la autenticación es exitosa, o muestra un mensaje de error
+     * en caso contrario.
+     *
+     * @param evt El evento de acción que desencadenó esta función.
+     */
     private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
         Usuario usuarioSesion = null;
         Usuarios negocioUsuario = new Usuarios();
-        
+
         char[] contrasenaCaracter = campoTextoPassword.getPassword();
         String contrasena = new String(contrasenaCaracter);
         usuarioSesion = negocioUsuario.obtenerUsuario(campoTextoEmail.getText(), contrasena);
-        
-        if(negocioUsuario.autentificarUsuario(usuarioSesion)){
-            frmProducto productosVentana=new frmProducto(usuarioSesion);
+
+        if (negocioUsuario.autentificarUsuario(usuarioSesion)) {
+            frmProducto productosVentana = new frmProducto(usuarioSesion);
             productosVentana.setVisible(true);
             this.setVisible(false);
-        }else{
-            if(campoTextoEmail.getText().trim().isEmpty() || contrasena.trim().isEmpty()){
+        } else {
+            if (campoTextoEmail.getText().trim().isEmpty() || contrasena.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Error: campos vacíos", "Error de inicio de sesión", HEIGHT);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Error: Email o contraseña incorrecta", "Error de inicio de sesión", HEIGHT);
             }
-           
+
         }
-        
-        
+
+
     }//GEN-LAST:event_btnInicioSesionActionPerformed
 
+    /**
+     * Manejador de eventos para el botón "Registrar". Se ejecuta cuando se hace
+     * clic en el botón. Abre una nueva ventana de registro de usuario y oculta
+     * la ventana actual.
+     *
+     * @param evt El evento de acción que desencadenó esta función.
+     */
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         frmUsuario usuarioVentana = new frmUsuario();

@@ -9,14 +9,19 @@ import java.util.List;
 
 /**
  *
- * @author marcos_zr
+ * @author Equipo 2
  */
 public class Pedidos {
-    
+    /**
+     * Constructor vacio
+     */
     public Pedidos(){
         
     }
-    
+    /**
+     * Metodo que registra un pedido
+     * @param pedido pedido del registro
+     */
     public void registrarPedido(Pedido pedido){
         
         PedidoDAO pedidoDAO = new PedidoDAO();
@@ -39,6 +44,12 @@ public class Pedidos {
         pedidoDAO.registrar(pedido);
     }
     
+    /**
+     * Metodo obtener Pedido que recibe como parametro el id del usuario y una fecha
+     * @param idUsuario Id del usuario
+     * @param fecha Fecha del pedido
+     * @return retorna un pedido con los parametros IdUsuario y una fecha
+     */
     public Pedido obtenerPedido(int idUsuario, Fecha fecha){
         Pedido pedido = null;
         PedidoDAO pedidoDAO = new PedidoDAO();
