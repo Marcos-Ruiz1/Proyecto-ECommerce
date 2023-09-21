@@ -38,7 +38,7 @@ public class frmCarrito extends javax.swing.JFrame {
     public frmCarrito(List<Producto> producto, Usuario usuario) {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        //productoLista.add(producto);
+        this.productoLista=producto;
         carritoLista.add(carrito);
         modelo = new TMCarrito(carritoLista, productoLista);
         jTable1.setModel(modelo);
