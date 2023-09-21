@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Equipo2
+ * @author Equipo 2
  */
 public class Conexion {
 
@@ -23,6 +23,12 @@ public class Conexion {
     private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
     protected Connection con;
 
+
+    /**
+     * Constructor de la clase Conexion que establece una conexión a la base de
+     * datos.
+     */
+
     public Conexion() {
         try {
             Class.forName(CLASSNAME);
@@ -34,6 +40,13 @@ public class Conexion {
             System.err.println("Error en: " + e);
         }
     }
+
+
+    /**
+     * Obtiene la conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     */
 
     public Connection getConexion() {
         return con;

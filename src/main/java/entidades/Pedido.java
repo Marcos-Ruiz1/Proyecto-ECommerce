@@ -2,7 +2,7 @@
 package entidades;
 /**
  *
- * @author marcos_zr
+ * @author Equipo 2
  */
 public class Pedido {
     
@@ -17,11 +17,11 @@ public class Pedido {
     }
     
     /**
-     * 
-     * @param idPedido
-     * @param fechaDePedido
-     * @param cantidad
-     * @param idUsuario 
+     *  Metodo que crea un pedido.
+     * @param idPedido Id del pedido.
+     * @param fechaDePedido Fecha del pedido.
+     * @param cantidad Cantidad del pedido.
+     * @param idUsuario  Id del usuario.
      */
     public Pedido(int idPedido, String fechaDePedido, float cantidad, int idUsuario){
         this.idPedido = idPedido;
@@ -31,10 +31,10 @@ public class Pedido {
     }
     
     /**
-     * 
-     * @param fechaDePedido
-     * @param cantidad
-     * @param idUsuario 
+     *  Metodo que crea un pedido sin el id pedido.
+     * @param fechaDePedido Fecha de pedido.
+     * @param cantidad Cantidad del pedido.
+     * @param idUsuario Id de usuario del pedido.
      */
     public Pedido(String fechaDePedido, float cantidad, int idUsuario){
         this.fechaDePedido = fechaDePedido;
@@ -43,11 +43,11 @@ public class Pedido {
     }
     
     /**
-     * 
-     * @param fechaDePedido
-     * @param cantidad
-     * @param idUsuario
-     * @param carrito 
+     *  Metodo que genera un pedido con el atributo de carrito.
+     * @param fechaDePedido Fecha de pedido.
+     * @param cantidad Cantidad de pedido.
+     * @param idUsuario Id del usuario
+     * @param carrito Carrito del pedido.
      */
     public Pedido(String fechaDePedido, float cantidad, int idUsuario, Carrito carrito){
         this.fechaDePedido = fechaDePedido;
@@ -57,80 +57,80 @@ public class Pedido {
     }
 
     /**
-     * 
-     * @return 
+     *  Obtiene el id del pedido
+     * @return retorna el id del pedido.
      */
     public int getIdPedido() {
         return idPedido;
     }
 
     /**
-     * 
-     * @param idPedido 
+     *  Asigna el id del pedido
+     * @param idPedido Id del pedido
      */
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }
 
     /**
-     * 
-     * @return 
+     *  Obtiene la fecha del pedido
+     * @return retorna la fecha del pedido
      */
     public String getFechaDePedido() {
         return fechaDePedido;
     }
 
     /**
-     * 
-     * @param fechaDePedido 
+     *  Asigna la fecha del pedido
+     * @param fechaDePedido Fecha del pedido
      */
     public void setFechaDePedido(String fechaDePedido) {
         this.fechaDePedido = fechaDePedido;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene la cantidad 
+     * @return Cantidad del pedido
      */
     public float getCantidad() {
         return cantidad;
     }
 
     /**
-     * 
-     * @param cantidad 
+     * Asigna la cantidad del pedido
+     * @param cantidad Cantidad del pedido
      */
     public void setCantidad(float cantidad) {
         this.cantidad = cantidad;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene el id del usuario
+     * @return id del Carrito
      */
     public int getIdUsuario() {
         return idUsuario;
     }
 
     /**
-     * 
-     * @param idUsuario 
+     * Asigna el id del usuario
+     * @param idUsuario Id del usuario
      */
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene el carrito
+     * @return retorna el carrito
      */
     public Carrito getCarrito() {
         return carrito;
     }
 
     /**
-     * 
-     * @param carrito 
+     * Asigna el Carrito
+     * @param carrito Carrito
      */
     public void setCarrito(Carrito carrito) {
         this.carrito = carrito;

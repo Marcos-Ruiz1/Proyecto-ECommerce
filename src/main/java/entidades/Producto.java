@@ -7,7 +7,7 @@ package entidades;
 
 /**
  *
- * @author Equipo2
+ * @author Equipo2 
  */
 public class Producto {
 

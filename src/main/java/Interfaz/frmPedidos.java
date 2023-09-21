@@ -8,7 +8,7 @@ import negocio.Pedidos;
 import negocio.TMPedido;
 /**
  *
- * @author Equipo2
+ * @author Equipo 2
  */
 public class frmPedidos extends javax.swing.JFrame {
 

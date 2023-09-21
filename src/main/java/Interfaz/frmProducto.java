@@ -1,5 +1,5 @@
-
 package Interfaz;
+
 import entidades.Producto;
 import entidades.Usuario;
 import entidades.Carrito;
@@ -10,21 +10,22 @@ import javax.swing.JOptionPane;
 import negocio.Productos;
 import negocio.TMProducto;
 
-
 /**
  *
- * @author gaspa
+ * @author Equipo 2
  */
 public class frmProducto extends javax.swing.JFrame {
-    
+
     private List<Producto> productos;
     private TMProducto modelo;
     private Usuario usuario; //Objeto usuario que te traes desde la ventana de LogIn para utilizarlo en otros frames como el frmProducto o en frmPedidos
     private Carrito carrito = new Carrito();
+
     /**
-     * Constructor frmProducto que inicializa los componentes de la ventana e inicializa el usuario con el que se inició
-     * sesión
-     * @param usuario el usuario con el que se inició sesión 
+     * Constructor frmProducto que inicializa los componentes de la ventana e
+     * inicializa el usuario con el que se inició sesión
+     *
+     * @param usuario el usuario con el que se inició sesión
      */
     public frmProducto(Usuario usuario) {
         initComponents();
@@ -40,10 +41,10 @@ public class frmProducto extends javax.swing.JFrame {
         productos.add(new Productos().obtenerProducto(8));
         productos.add(new Productos().obtenerProducto(9));
         productos.add(new Productos().obtenerProducto(10));
-        modelo= new TMProducto(productos);
-        
+        modelo = new TMProducto(productos);
+
         jTable1.setModel(modelo);
-                
+
     }
 
     /**
@@ -162,29 +163,48 @@ public class frmProducto extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Manejador de eventos para el botón "Carrito". Se ejecuta cuando se hace
+     * clic en el botón. Abre una nueva ventana de carrito de compras y pasa los
+     * productos y el usuario actual a la nueva ventana.
+     *
+     * @param evt El evento de acción que desencadenó esta función.
+     */
     private void botonCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCarritoActionPerformed
         // TODO add your handling code here:
         frmCarrito carritoVentana = new frmCarrito(this.productos, this.usuario);
         carritoVentana.setVisible(true);
     }//GEN-LAST:event_botonCarritoActionPerformed
-
+    /**
+     * Manejador de eventos para el botón "Agregar". Se ejecuta cuando se hace
+     * clic en el botón. Agrega el ID de un producto al carrito de compras si el
+     * campo de texto no está vacío. Muestra un mensaje de error si el campo de
+     * texto está vacío.
+     *
+     * @param evt El evento de acción que desencadenó esta función.
+     */
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if(!campoTextoIdProducto.getText().trim().isEmpty()){
+        if (!campoTextoIdProducto.getText().trim().isEmpty()) {
             carrito.getIdProducto().add(Integer.valueOf(campoTextoIdProducto.getText()));
-        }else{
-          JOptionPane.showMessageDialog(null, "Error: campos vacío, escribe un id de algún producto", "Error ingreso de id del producto", HEIGHT);  
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: campos vacío, escribe un id de algún producto", "Error ingreso de id del producto", HEIGHT);
         }
-        
+
     }//GEN-LAST:event_botonAgregarActionPerformed
 
+    /**
+     * Manejador de eventos para el botón "Pedidos". Se ejecuta cuando se hace
+     * clic en el botón. Abre una nueva ventana de pedidos y pasa el usuario
+     * actual a la nueva ventana.
+     *
+     * @param evt El evento de acción que desencadenó esta función.
+     */
     private void botonPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPedidosActionPerformed
         // TODO add your handling code here:
         frmPedidos pedidosVentana = new frmPedidos(this.usuario);
         pedidosVentana.setVisible(true);
     }//GEN-LAST:event_botonPedidosActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregar;
