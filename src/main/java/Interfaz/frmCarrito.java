@@ -5,6 +5,7 @@ import entidades.Producto;
 import entidades.Pedido;
 import negocio.Pedidos;
 import negocio.Productos;
+import negocio.Carritos;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class frmCarrito extends javax.swing.JFrame {
      * Método constructor que inicializa la ventana del carrito con el carrito
      * de compra y el usuario que hizo log in
      *
-     * @param producto
+     * @param carrito el carrito de compra
      * @param usuario el usuario que hizo log in
      */
     public frmCarrito(Carrito carrito, Usuario usuario) {
@@ -183,15 +184,7 @@ public class frmCarrito extends javax.swing.JFrame {
     }//GEN-LAST:event_volverButtonActionPerformed
 
     private void campoTextoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoTotalActionPerformed
-//        // TODO add your handling code here:
-//        for (int i = 0; i < this.carrito.getIdProducto().size(); i++) {
-//            int idProducto = this.carrito.getIdProducto().get(i);
-//            
-//            System.out.println("ID del producto: " + idProducto);
-//            producto = negocioProductos.obtenerProducto(idProducto);
-//            
-//          
-//        }
+
         
     }//GEN-LAST:event_campoTextoTotalActionPerformed
 
@@ -201,12 +194,19 @@ public class frmCarrito extends javax.swing.JFrame {
         Pedido pedido = new Pedido(new Fecha().toString() , this.suma, this.usuario.getIdUsuario(), this.carrito);
         Pedidos negocioPedido = new Pedidos();
         
+        
         negocioPedido.registrarPedido(pedido);
-//        negocioPedido.obtenerPedidos(this.usuario.getIdUsuario());
+        Pedido pedidoProducto = negocioPedido.obtenerPedido(this.usuario.getIdUsuario());
+        Carritos negocioCarrito = new Carritos();
+        this.carrito.setIdPedido(pedidoProducto.getIdPedido());
+        this.carrito.setIdUsuario(this.usuario.getIdUsuario());
+        negocioCarrito.registrarCarrito(this.carrito);
+        
         this.suma = 0.0f;
         this.setVisible(false);
         System.out.println("pedido registrado");
-        this.carrito = null;
+        
+        this.carrito.getIdProducto().clear();
     }//GEN-LAST:event_botonPagarActionPerformed
 
 

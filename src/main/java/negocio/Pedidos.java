@@ -3,8 +3,6 @@ package negocio;
 import entidades.Pedido;
 import entidades.Producto;
 import persistencia.PedidoDAO;
-import servicio.Fecha;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,14 +45,13 @@ public class Pedidos {
     /**
      * Metodo obtener Pedido que recibe como parametro el id del usuario y una fecha
      * @param idUsuario Id del usuario
-     * @param fecha Fecha del pedido
      * @return retorna un pedido con los parametros IdUsuario y una fecha
      */
-    public Pedido obtenerPedido(int idUsuario, Fecha fecha){
+    public Pedido obtenerPedido(int idUsuario){
         Pedido pedido = null;
         PedidoDAO pedidoDAO = new PedidoDAO();
         
-        pedido = pedidoDAO.obtener(idUsuario, fecha);
+        pedido = pedidoDAO.obtener(idUsuario);
         
         return pedido;
     }

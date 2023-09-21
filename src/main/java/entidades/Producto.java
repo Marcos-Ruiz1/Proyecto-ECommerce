@@ -26,10 +26,11 @@ public class Producto {
     /**
      * metodo que ayuda a registrar un producto.
      *
+     * @param idProducto el id del producto
      * @param nombre Nombre del producto.
      * @param descripcion Descripción del producto.
      * @param precio Precio del producto.
-     * @param idCategoria
+     * @param idCategoria el id de la categoria a la que pertenece el producto
      */
     public Producto(int idProducto, String nombre, String descripcion, float precio, int idCategoria) {
         this.idProducto = idProducto;

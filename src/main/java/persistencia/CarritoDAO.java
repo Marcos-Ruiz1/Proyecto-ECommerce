@@ -77,7 +77,7 @@ public class CarritoDAO extends Conexion{
         ResultSet rs = null;
         
         try{
-            String consulta = "select ProductosPedidos.idProducto from usuarios where idProducto=?";
+            String consulta = "select ProductosPedidos.idProducto from ProductosPedidos where idProducto=?";
             System.out.println("Consulta es " + consulta);
             pst = getConexion().prepareStatement(consulta);
             pst.setInt(1, 1);

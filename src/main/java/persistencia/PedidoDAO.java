@@ -1,6 +1,5 @@
 package persistencia;
 
-import servicio.Fecha;
 import entidades.Pedido;
 import java.util.List;
 import java.sql.PreparedStatement;
@@ -58,21 +57,19 @@ public class PedidoDAO extends Conexion {
      * de pedido.
      *
      * @param idUsuario El ID del usuario asociado al pedido.
-     * @param fecha La fecha de pedido.
      * @return Un objeto Pedido si se encuentra en la base de datos, o null si
      * no se encuentra.
      */
-    public Pedido obtener(int idUsuario, Fecha fecha) {
+    public Pedido obtener(int idUsuario) {
         PreparedStatement pst = null;
         ResultSet rs = null;
         Pedido pedido = null;
 
         try {
 
-            String consulta = "SELECT * FROM Pedidos WHERE idUsuario = ? AND fechaDePedido=?";
+            String consulta = "SELECT * FROM Pedidos WHERE idUsuario = ? ";
             pst = getConexion().prepareStatement(consulta);
             pst.setInt(1, idUsuario);
-            pst.setString(2, fecha.toString());
             rs = pst.executeQuery();
 
             if (rs.next()) {

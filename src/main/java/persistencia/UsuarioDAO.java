@@ -21,7 +21,7 @@ public class UsuarioDAO extends Conexion {
     /**
      * Obtiene un producto de la base de datos según su ID.
      *
-     * @param idProducto El ID del producto a obtener.
+     * @param usuario el usuario a autentificar
      * @return El objeto de tipo Producto correspondiente al producto
      * encontrado, o null si no se encuentra.
      */

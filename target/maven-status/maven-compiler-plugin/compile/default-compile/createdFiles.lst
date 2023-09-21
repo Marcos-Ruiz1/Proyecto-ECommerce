@@ -10,6 +10,7 @@ negocio\Usuarios.class
 Interfaz\frmProducto$1.class
 Interfaz\frmProducto$2.class
 persistencia\Conexion.class
+Interfaz\frmCarrito$2.class
 entidades\Producto.class
 Interfaz\frmUsuario$2.class
 entidades\Carrito.class
@@ -29,6 +30,7 @@ entidades\Pedido.class
 negocio\Productos.class
 Interfaz\frmInicio$2.class
 Interfaz\frmUsuario.class
+Interfaz\frmCarrito$3.class
 Interfaz\frmPedido$2.class
 persistencia\ProductoDAO.class
 servicio\Fecha.class

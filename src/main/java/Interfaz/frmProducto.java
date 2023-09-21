@@ -3,6 +3,7 @@ package Interfaz;
 import entidades.Producto;
 import entidades.Usuario;
 import entidades.Carrito;
+import negocio.Productos;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.List;
 import java.util.ArrayList;
@@ -44,6 +45,8 @@ public class frmProducto extends javax.swing.JFrame {
         modelo = new TMProducto(productos);
 
         jTable1.setModel(modelo);
+        
+        textoNombre.setText(usuario.getEmail());
 
     }
 
@@ -64,6 +67,8 @@ public class frmProducto extends javax.swing.JFrame {
         botonAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         botonPedidos = new javax.swing.JButton();
+        Usuario = new javax.swing.JLabel();
+        textoNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +113,8 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
+        Usuario.setText("Usuario:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,7 +135,11 @@ public class frmProducto extends javax.swing.JFrame {
                         .addComponent(botonCarrito)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(293, 293, 293)
+                .addGap(16, 16, 16)
+                .addComponent(Usuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +152,10 @@ public class frmProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(Usuario)
+                    .addComponent(textoNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -184,8 +198,19 @@ public class frmProducto extends javax.swing.JFrame {
      * @param evt El evento de acción que desencadenó esta función.
      */
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        Productos negocioProducto = new Productos();
+        
         if (!campoTextoIdProducto.getText().trim().isEmpty()) {
-            carrito.getIdProducto().add(Integer.valueOf(campoTextoIdProducto.getText()));
+            Producto productoExistente = negocioProducto.obtenerProducto(Integer.parseInt(campoTextoIdProducto.getText()));
+            if(productoExistente != null){
+                carrito.getIdProducto().add(Integer.valueOf(campoTextoIdProducto.getText()));
+                campoTextoIdProducto.setText("");
+                JOptionPane.showMessageDialog(null, "Se agrego el producto al carrito con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+            }else{
+                campoTextoIdProducto.setText("");
+                JOptionPane.showMessageDialog(null, "Error: ese producto no existe", "Error ingreso de id del producto", HEIGHT);
+            }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Error: campos vacío, escribe un id de algún producto", "Error ingreso de id del producto", HEIGHT);
         }
@@ -207,6 +232,7 @@ public class frmProducto extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Usuario;
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonCarrito;
     private javax.swing.JButton botonPedidos;
@@ -215,5 +241,6 @@ public class frmProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel textoNombre;
     // End of variables declaration//GEN-END:variables
 }

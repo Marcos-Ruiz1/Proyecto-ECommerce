@@ -75,7 +75,7 @@ public class TMProducto implements TableModel {
                 break;
             }
             case 4: {
-                titulo = "idCategoria";
+                titulo = "Categoria";
                 break;
             }
         }
@@ -106,7 +106,7 @@ public class TMProducto implements TableModel {
                 return float.class;
             }
             case 4: {
-                return int.class;
+                return String.class;
             }
         }
         return null;
@@ -156,7 +156,12 @@ public class TMProducto implements TableModel {
 
             }
             case 4 -> {
-                return p.getIdCategoria();
+                if(p.getIdCategoria() ==1){
+                    return "Nike";
+                }else{
+                    return "UnderArmour";
+                }
+                
 
             }
         }
