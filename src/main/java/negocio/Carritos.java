@@ -19,4 +19,12 @@ public class Carritos {
         
         carritoDAO.registrar(carrito);
     }
+    public Carrito obtenerCarrito(Carrito idCarrito){
+        Carrito carrito = null;
+        CarritoDAO carritoDAO = new CarritoDAO();
+        
+        carrito = carritoDAO.obtener(idCarrito);
+        return carrito;
+    }
+
 }

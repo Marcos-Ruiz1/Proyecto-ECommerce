@@ -1,47 +1,25 @@
-<<<<<<< HEAD
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\negocio\TMProducto.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\persistencia\Conexion.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\entidades\Producto.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmProducto.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\negocio\Usuarios.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\negocio\Pedidos.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\persistencia\CarritoDAO.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\com\mycompany\proyectoe\commerce\ProyectoECommerce.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\entidades\Usuario.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmInicio.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\entidades\Carrito.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmPedido.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\negocio\Carritos.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\entidades\Pedido.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\negocio\Productos.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\persistencia\ProductoDAO.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\persistencia\PedidoDAO.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmUsuario.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmCarrito.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\Interfaz\frmLogin.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\servicio\Fecha.java
-C:\Users\marcos_zr\Documents\Agosto-Diciembre2023\Bases de datos avanzadas\ProyectoE-Commerce\src\main\java\persistencia\UsuarioDAO.java
-=======
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\persistencia\UsuarioDAO.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\negocio\Productos.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\persistencia\CarritoDAO.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\entidades\Producto.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmLogin.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\negocio\Usuarios.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\persistencia\ProductoDAO.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\negocio\Pedidos.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmInicio.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\negocio\Carritos.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\persistencia\Conexion.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmPedido.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\persistencia\PedidoDAO.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmProducto.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\entidades\Carrito.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\entidades\Pedido.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\com\mycompany\proyectoe\commerce\ProyectoECommerce.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\negocio\TMProducto.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\entidades\Usuario.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmUsuario.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\servicio\Fecha.java
-E:\ITSON\ISW\7mo semestre\Base de datos Avanzada\proyecto 1\Proyecto-ECommerce\src\main\java\Interfaz\frmCarrito.java
->>>>>>> 069c31a9811f79905f376757eef6cea4a1d77c26
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\entidades\Pedido.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\Productos.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\persistencia\CarritoDAO.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\TMProducto.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\Usuarios.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmCarrito.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmProducto.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmUsuario.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\TMPedido.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\persistencia\PedidoDAO.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\entidades\Producto.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\persistencia\Conexion.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\persistencia\UsuarioDAO.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmLogin.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\TMCarrito.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\entidades\Usuario.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\com\mycompany\proyectoe\commerce\ProyectoECommerce.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmPedido.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\entidades\Carrito.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmInicio.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\Carritos.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\persistencia\ProductoDAO.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\negocio\Pedidos.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\Interfaz\frmPedidos.java
+C:\Users\gaspa\Documents\GitHub\Proyecto-ECommerce\src\main\java\servicio\Fecha.java

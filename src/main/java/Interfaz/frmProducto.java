@@ -165,7 +165,7 @@ public class frmProducto extends javax.swing.JFrame {
 
     private void botonCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCarritoActionPerformed
         // TODO add your handling code here:
-        frmCarrito carritoVentana = new frmCarrito(this.carrito, this.usuario);
+        frmCarrito carritoVentana = new frmCarrito(this.productos, this.usuario);
         carritoVentana.setVisible(true);
     }//GEN-LAST:event_botonCarritoActionPerformed
 
