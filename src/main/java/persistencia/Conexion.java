@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package persistencia;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-        
+
 /**
  *
- * @author marcos_zr
+ * @author Equipo 2
  */
 public class Conexion {
     private String USERNAME="root";
@@ -20,21 +21,33 @@ public class Conexion {
     private String CLASSNAME="com.mysql.cj.jdbc.Driver";
     private String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
     protected Connection con;
-    
-    
-    public Conexion(){
-        try{
+
+
+    /**
+     * Constructor de la clase Conexion que establece una conexión a la base de
+     * datos.
+     */
+
+    public Conexion() {
+        try {
             Class.forName(CLASSNAME);
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            
-        } catch(ClassNotFoundException e){
+
+        } catch (ClassNotFoundException e) {
             System.err.println("Error en: " + e);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Error en: " + e);
         }
     }
-    
-    public Connection getConexion(){
+
+
+    /**
+     * Obtiene la conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     */
+
+    public Connection getConexion() {
         return con;
     }
 }

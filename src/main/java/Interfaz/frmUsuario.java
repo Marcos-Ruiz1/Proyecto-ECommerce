@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
+
 import entidades.Usuario;
 import Interfaz.frmLogin;
 import static java.awt.image.ImageObserver.HEIGHT;
@@ -13,12 +14,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author cocob
+ * @author Equipo2
  */
 public class frmUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmUsuario
+     * Contructor de la clase frmUsuario
      */
     public frmUsuario() {
         initComponents();
@@ -159,12 +160,19 @@ public class frmUsuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja el evento de clic en el botón "Guardar". Este método recopila los
+     * datos del usuario desde los campos de texto, valida la contraseña
+     * ingresada y registra un nuevo usuario si se cumplen los requisitos.
+     *
+     * @param evt El evento de acción que desencadena este método.
+     */
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             Usuarios usuarios = new Usuarios();
             Usuario usuarioNuevo = new Usuario();
-        
+
             usuarioNuevo.setNombre(campoTextoNombre.getText());
             usuarioNuevo.setEmail(campoTextoEmail.getText());
             char[] contrasenaCaracter = campoTextoContrasena.getPassword();
@@ -172,31 +180,36 @@ public class frmUsuario extends javax.swing.JFrame {
             usuarioNuevo.setContrasena(contrasenaString);
             usuarioNuevo.setTelefono(campoTextoTelefono.getText());
             usuarioNuevo.setDireccion(campoTextoDireccion.getText());
-        
-            if (campoTextoNombre.getText().trim().isEmpty() || campoTextoEmail.getText().trim().isEmpty() || 
-                contrasenaString.trim().isEmpty() || campoTextoTelefono.getText().trim().isEmpty()) {
+
+            if (campoTextoNombre.getText().trim().isEmpty() || campoTextoEmail.getText().trim().isEmpty()
+                    || contrasenaString.trim().isEmpty() || campoTextoTelefono.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Error: campos vacíos, ingrese valores en los campos de texto", "Error de registro de usuario", HEIGHT);
-    
+
             } else {
-                if(usuarios.validarContrasena(usuarioNuevo.getContrasena())){
+                if (usuarios.validarContrasena(usuarioNuevo.getContrasena())) {
                     usuarios.registrarUsuario(usuarioNuevo);
                     frmLogin loginVentana = new frmLogin();
                     loginVentana.setVisible(true);
                     this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                     this.setVisible(false);
-                    
-                }else{
+
+                } else {
                     JOptionPane.showMessageDialog(null, "Error: La contraseña debe de contener almenos una letra mayuscula, almenos un digito [0-9], \ndebe contener almenos un caracter que no sea ni letra ni digito\n y por último debe tener de 8 a 10 caracteres", "Error de ingreso de contraseña", HEIGHT);
                 }
-                 
-            
+
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_botonGuardarActionPerformed
 
+    /**
+     * Maneja el evento de clic en el botón "Vaciar". Este método limpia (borra)
+     * los datos ingresados en los campos de texto del formulario.
+     *
+     * @param evt El evento de acción que desencadena este método.
+     */
     private void botonVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVaciarActionPerformed
         // TODO add your handling code here:
         campoTextoNombre.setText("");
@@ -206,13 +219,20 @@ public class frmUsuario extends javax.swing.JFrame {
         campoTextoDireccion.setText("");
     }//GEN-LAST:event_botonVaciarActionPerformed
 
+    /**
+     * Maneja el evento de clic en el botón "Volver". Este método crea una nueva
+     * instancia de la ventana de inicio de sesión (frmLogin), la hace visible y
+     * configura el cierre de la ventana actual antes de ocultarla.
+     *
+     * @param evt El evento de acción que desencadena este método.
+     */
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         frmLogin log = new frmLogin();
         log.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**

@@ -1,5 +1,5 @@
-
 package Interfaz;
+
 import entidades.Carrito;
 import entidades.Producto;
 import entidades.Pedido;
@@ -13,7 +13,7 @@ import servicio.Fecha;
 
 /**
  *
- * @author gaspa
+ * @author Equipo2
  */
 public class frmCarrito extends javax.swing.JFrame {
 
@@ -26,18 +26,18 @@ public class frmCarrito extends javax.swing.JFrame {
     
     
     /**
-     * Creates new form frmCarrito
+     * Constructor de la clase frmCarrito. Inicializa y configura el formulario.
      */
     public frmCarrito() {
         initComponents();
-        
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
-     * Método constructor que inicializa la ventana del carrito con el carrito de compra y el usuario que hizo
-     * log in
-     * 
+     * Método constructor que inicializa la ventana del carrito con el carrito
+     * de compra y el usuario que hizo log in
+     *
      * @param producto
      * @param usuario el usuario que hizo log in
      */
@@ -66,6 +66,7 @@ public class frmCarrito extends javax.swing.JFrame {
         campoTextoTotal.setText(String.valueOf(this.suma));
        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -178,6 +179,7 @@ public class frmCarrito extends javax.swing.JFrame {
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_volverButtonActionPerformed
 
     private void campoTextoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoTotalActionPerformed
