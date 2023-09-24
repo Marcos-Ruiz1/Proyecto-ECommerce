@@ -139,23 +139,23 @@ public class TMProducto implements TableModel {
         Producto p = productos.get(rowIndex);
 
         switch (columnIndex) {
-            case 0 -> {
+            case 0:  {
                 return p.getIdProducto();
 
             }
-            case 1 -> {
+            case 1:{
                 return p.getNombre();
 
             }
-            case 2 -> {
+            case 2: {
                 return p.getDescripcion();
 
             }
-            case 3 -> {
+            case 3: {
                 return p.getPrecio();
 
             }
-            case 4 -> {
+            case 4: {
                 if(p.getIdCategoria() ==1){
                     return "Nike";
                 }else{
@@ -180,22 +180,22 @@ public class TMProducto implements TableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         Producto p = productos.get(rowIndex);
         switch (columnIndex) {
-            case 0 -> {
+            case 0: {
                 p.setIdProducto((int) aValue);
 
             }
-            case 1 -> {
+            case 1: {
                 p.setNombre(aValue.toString());
             }
-            case 2 -> {
+            case 2: {
                 p.setDescripcion(aValue.toString());
 
             }
-            case 3 -> {
+            case 3: {
                 p.setPrecio((int) aValue);
 
             }
-            case 4 -> {
+            case 4: {
                 p.setIdCategoria((int) aValue);
 
             }
