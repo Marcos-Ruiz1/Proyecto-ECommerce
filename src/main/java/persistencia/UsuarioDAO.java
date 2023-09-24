@@ -75,7 +75,7 @@ public class UsuarioDAO extends Conexion {
         PreparedStatement pst = null;
 
         try {
-            String consulta = "INSERT INTO usuarios (nombre, email, telefono, direccion, contrasena) VALUES (?, ?, ?, ?, ?)";
+            String consulta = "CALL InsertarUsuario(?, ?, ?, ?, ?)"; //sentencia de procedimiento almacenado 
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, usuario.getNombre());
             pst.setString(2, usuario.getEmail());

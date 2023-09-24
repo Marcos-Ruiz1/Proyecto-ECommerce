@@ -30,7 +30,7 @@ public class ProductoDAO extends Conexion {
         PreparedStatement pst = null;
 
         try {
-            String consulta = "INSERT INTO  productos(nombre, direccion, precio) VALUES(?, ?, ?)";
+            String consulta = "INSERT INTO  productos(nombre, direccion, precio) VALUES(?, ?, ?)"; //Trigger para en caso de que se ingrese un precio negativo en el producto
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, producto.getNombre());
             pst.setString(2, producto.getDescripcion());

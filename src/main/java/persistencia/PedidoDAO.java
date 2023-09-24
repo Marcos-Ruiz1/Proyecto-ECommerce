@@ -23,7 +23,7 @@ public class PedidoDAO extends Conexion {
         PreparedStatement pst = null;
 
         try {
-            String consulta = "INSERT INTO pedidos (fechaDePedido, cantidad, idUsuario) VALUES (?, ?, ?)";
+            String consulta = "INSERT INTO pedidos (fechaDePedido, cantidad, idUsuario) VALUES (?, ?, ?)"; //Se ejecuta trigger para obtener la fecha del pedido
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, pedido.getFechaDePedido());
             pst.setFloat(2, pedido.getCantidad());
