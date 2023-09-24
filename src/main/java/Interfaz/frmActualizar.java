@@ -68,7 +68,9 @@ public class frmActualizar extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(51, 255, 51));
         btnVolver.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +78,7 @@ public class frmActualizar extends javax.swing.JFrame {
             }
         });
 
+        btnVaciar.setBackground(new java.awt.Color(0, 0, 0));
         btnVaciar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btnVaciar.setForeground(new java.awt.Color(255, 255, 255));
         btnVaciar.setText("Vaciar");
@@ -85,9 +88,9 @@ public class frmActualizar extends javax.swing.JFrame {
             }
         });
 
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setBackground(new java.awt.Color(51, 51, 255));
         btnActualizar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(51, 51, 255));
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

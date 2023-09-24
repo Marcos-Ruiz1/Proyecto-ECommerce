@@ -117,15 +117,15 @@ public class TMPedido implements TableModel {
         Pedido p = pedidos.get(rowIndex);
 
         switch (columnIndex) {
-            case 0: {
+            case 0-> {
                 return p.getIdPedido();
 
             }
-            case 1: {
+            case 1 -> {
                 return p.getCantidad();
 
             }
-            case 2: {
+            case 2 -> {
                 return p.getFechaDePedido();
 
             }
@@ -144,14 +144,14 @@ public class TMPedido implements TableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         Pedido p = pedidos.get(rowIndex);
         switch (columnIndex) {
-            case 0: {
+            case 0 -> {
                 p.setIdPedido((int) aValue);
 
             }
-            case 1: {
+            case 1 -> {
                 p.setCantidad((float) aValue);
             }
-            case 2: {
+            case 2 -> {
                 p.setFechaDePedido(aValue.toString());
 
             }

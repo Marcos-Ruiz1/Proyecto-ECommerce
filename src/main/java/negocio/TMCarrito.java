@@ -105,16 +105,16 @@ public class TMCarrito implements TableModel{
         Producto p = producto.get(rowIndex);
         
         switch(columnIndex){
-            case 0 : {
+            case 0 -> {
                 
                 return p.getIdProducto();
                 
             }
-            case 1 : {
+            case 1 -> {
                 return p.getNombre();
                 
             }
-            case 2 : {
+            case 2 -> {
                 return p.getPrecio();
                 
             }
@@ -132,13 +132,13 @@ public class TMCarrito implements TableModel{
 //        Carrito c = carrito.get(rowIndex);
         Producto p = producto.get(rowIndex);
         switch(columnIndex){
-            case 0: {
+            case 0-> {
                 p.setIdProducto((int)aValue);
             }
-            case 1: {
+            case 1-> {
                 p.setNombre((String)aValue);
             }
-            case 2:{
+            case 2->{
                 p.setPrecio((int)aValue);
             }
         }

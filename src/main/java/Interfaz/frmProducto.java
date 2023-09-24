@@ -85,10 +85,14 @@ public class frmProducto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("idProducto");
 
         campoTextoIdProducto.setColumns(5);
 
+        botonCarrito.setBackground(new java.awt.Color(0, 51, 204));
+        botonCarrito.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonCarrito.setForeground(new java.awt.Color(255, 255, 255));
         botonCarrito.setText("Carrito");
         botonCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +100,9 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
+        botonAgregar.setBackground(new java.awt.Color(51, 255, 51));
+        botonAgregar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonAgregar.setForeground(new java.awt.Color(255, 255, 255));
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,9 +110,12 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("Productos");
 
+        botonPedidos.setBackground(new java.awt.Color(255, 153, 0));
+        botonPedidos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonPedidos.setForeground(new java.awt.Color(255, 255, 255));
         botonPedidos.setText("Historial De Pedidos");
         botonPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +123,7 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
+        Usuario.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         Usuario.setText("Usuario:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,9 +142,8 @@ public class frmProducto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonPedidos)
-                        .addGap(86, 86, 86)
-                        .addComponent(botonCarrito)
-                        .addGap(126, 126, 126)))
+                        .addGap(146, 146, 146)
+                        .addComponent(botonCarrito)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -147,7 +157,7 @@ public class frmProducto extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(botonAgregar)
-                    .addContainerGap(630, Short.MAX_VALUE)))
+                    .addContainerGap(609, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,14 +173,14 @@ public class frmProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(campoTextoIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCarrito)
                     .addComponent(botonPedidos))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(280, Short.MAX_VALUE)
+                    .addContainerGap(274, Short.MAX_VALUE)
                     .addComponent(botonAgregar)
                     .addContainerGap()))
         );

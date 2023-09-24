@@ -46,7 +46,9 @@ public class frmEliminar extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel6.setText("Contraseña");
 
+        btnVaciar.setBackground(new java.awt.Color(255, 102, 0));
         btnVaciar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btnVaciar.setForeground(new java.awt.Color(255, 255, 255));
         btnVaciar.setText("Vaciar");
         btnVaciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,8 +56,9 @@ public class frmEliminar extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

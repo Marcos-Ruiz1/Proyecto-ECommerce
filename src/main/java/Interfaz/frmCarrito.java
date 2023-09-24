@@ -107,7 +107,9 @@ public class frmCarrito extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 255));
         jLabel2.setText("CARRITO");
 
+        volverButton.setBackground(new java.awt.Color(0, 0, 0));
         volverButton.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        volverButton.setForeground(new java.awt.Color(255, 255, 255));
         volverButton.setText("VOLVER");
         volverButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +117,9 @@ public class frmCarrito extends javax.swing.JFrame {
             }
         });
 
+        botonPagar.setBackground(new java.awt.Color(51, 51, 255));
         botonPagar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        botonPagar.setForeground(new java.awt.Color(51, 102, 255));
+        botonPagar.setForeground(new java.awt.Color(255, 255, 255));
         botonPagar.setText("PAGAR");
         botonPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +127,9 @@ public class frmCarrito extends javax.swing.JFrame {
             }
         });
 
+        eliminarButton.setBackground(new java.awt.Color(255, 0, 0));
         eliminarButton.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        eliminarButton.setForeground(new java.awt.Color(255, 0, 0));
+        eliminarButton.setForeground(new java.awt.Color(255, 255, 255));
         eliminarButton.setText("ELIMINAR");
         eliminarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,14 +185,16 @@ public class frmCarrito extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volverButton)
-                    .addComponent(eliminarButton)
-                    .addComponent(botonPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(volverButton)
+                        .addComponent(eliminarButton)))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed

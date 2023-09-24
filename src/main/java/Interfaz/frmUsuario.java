@@ -48,20 +48,28 @@ public class frmUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel1.setText("Usuario");
         jLabel1.setVerifyInputWhenFocusTarget(false);
 
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
 
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jLabel3.setText("Email");
 
+        jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jLabel4.setText("Teléfono");
 
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jLabel5.setText("Dirección");
 
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jLabel6.setText("Contraseña");
 
+        botonGuardar.setBackground(new java.awt.Color(51, 51, 255));
+        botonGuardar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonGuardar.setForeground(new java.awt.Color(255, 255, 255));
         botonGuardar.setText("Registrar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +77,9 @@ public class frmUsuario extends javax.swing.JFrame {
             }
         });
 
+        botonVaciar.setBackground(new java.awt.Color(255, 153, 0));
+        botonVaciar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonVaciar.setForeground(new java.awt.Color(255, 255, 255));
         botonVaciar.setText("Vaciar");
         botonVaciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +87,9 @@ public class frmUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(102, 255, 0));
+        btnVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,9 +128,9 @@ public class frmUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(btnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(botonVaciar)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonGuardar)
                 .addGap(36, 36, 36))
         );
