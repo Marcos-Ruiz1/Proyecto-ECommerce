@@ -9,7 +9,10 @@ import persistencia.Conexion;
  * @author marcos_zr
  */
 public class ProyectoECommerce {
-
+    /**
+     * clase main 
+     * @param args  
+     */
     public static void main(String[] args) {
 
         Conexion conex = new Conexion();

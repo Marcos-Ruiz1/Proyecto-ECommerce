@@ -46,6 +46,32 @@ public class Usuarios {
 
     }
 
+    
+    /**
+     * Método eliminarUsuario que recibe como parámetro un usuario y es eliminado de la base de datos
+     * @param usuario el usuario a eliminar
+     */
+    public boolean eliminarUsuario(Usuario usuario) {
+
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        return usuarioDAO.eliminar(usuario);
+
+    }
+    
+    /**
+     * Método actualizarUsuario que recibe como parámetro un usuario y actualiza sus datos en la base de datos
+     * @param usuario el usuario a actualizar sus datos
+     */
+    public boolean actualizarUsuario(Usuario usuario) {
+
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        return usuarioDAO.actualizar(usuario);
+
+    }
+
+    
     /**
      * Valida si una contraseña cumple con los requisitos de complejidad
      * establecidos.

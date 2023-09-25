@@ -105,6 +105,88 @@ public class UsuarioDAO extends Conexion {
         System.out.println("Usuario no registrado con exito");
         return false;
     }
+    
+    /**
+     * Elimina al usuario de la base de datos
+     * @param usuario el objeto usuario a eliminar
+     * @return true si se elimino el usuario con exito, false en caso
+     * contrario.
+     */
+    public boolean eliminar(Usuario usuario) {
+        PreparedStatement pst = null;
+
+        try {
+            String consulta = "CALL EliminarUsuario(?)"; //sentencia de procedimiento almacenado 
+            pst = getConexion().prepareStatement(consulta);
+            pst.setInt(1, usuario.getIdUsuario());
+            
+
+            if (pst.executeUpdate() == 1) {
+                System.out.println("Usuario eliminado con exito");
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en " + e);
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+
+        System.out.println("Usuario no eliminado con exito");
+        return false;
+    }
+
+    
+    /**
+     * Actualiza los datos del usuario en la base de datos
+     * @param usuario el objeto usuario a actualizar
+     * @return true si se actualizaron los datos del usuario con exito, false en caso
+     * contrario.
+     */
+    public boolean actualizar(Usuario usuario) {
+        PreparedStatement pst = null;
+
+        try {
+            String consulta = "CALL ActualizarUsuario(?, ?, ?, ?, ?, ?)"; //sentencia de procedimiento almacenado 
+            pst = getConexion().prepareStatement(consulta);
+            pst.setInt(1, usuario.getIdUsuario());
+            pst.setString(2, usuario.getNombre());
+            pst.setString(3, usuario.getEmail());
+            pst.setString(4, usuario.getTelefono());
+            pst.setString(5, usuario.getDireccion());
+            pst.setString(6, usuario.getContrasena());
+
+            if (pst.executeUpdate() == 1) {
+                System.out.println("Usuario actualizado con exito");
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en " + e);
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+
+        System.out.println("Usuario no actualizado con exito");
+        return false;
+    }
+
 
     /**
      * Obtiene un usuario de la base de datos según su ID.

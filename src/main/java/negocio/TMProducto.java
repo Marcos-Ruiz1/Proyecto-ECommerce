@@ -58,23 +58,23 @@ public class TMProducto implements TableModel {
     public String getColumnName(int columnIndex) {
         String titulo = null;
         switch (columnIndex) {
-            case 0: {
+            case 0 : {
                 titulo = "idProducto";
                 break;
             }
-            case 1: {
+            case 1 : {
                 titulo = "nombre";
                 break;
             }
-            case 2: {
+            case 2 : {
                 titulo = "descripcion";
                 break;
             }
-            case 3: {
+            case 3 : {
                 titulo = "precio";
                 break;
             }
-            case 4: {
+            case 4 : {
                 titulo = "Categoria";
                 break;
             }
@@ -93,19 +93,19 @@ public class TMProducto implements TableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-            case 0: {
+            case 0 : {
                 return int.class;
             }
-            case 1: {
+            case 1 : {
                 return String.class;
             }
-            case 2: {
+            case 2 : {
                 return String.class;
             }
-            case 3: {
+            case 3 : {
                 return float.class;
             }
-            case 4: {
+            case 4 : {
                 return String.class;
             }
         }
@@ -139,7 +139,7 @@ public class TMProducto implements TableModel {
         Producto p = productos.get(rowIndex);
 
         switch (columnIndex) {
-            case 0 -> {
+            case 0 ->  {
                 return p.getIdProducto();
 
             }

@@ -32,9 +32,9 @@ public class frmUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
-        lblTelefono = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         campoTextoNombre = new javax.swing.JTextField();
@@ -48,20 +48,28 @@ public class frmUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel1.setText("Usuario");
         jLabel1.setVerifyInputWhenFocusTarget(false);
 
-        lblNombre.setText("Nombre");
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        jLabel2.setText("Nombre");
 
-        lblEmail.setText("Email");
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        jLabel3.setText("Email");
 
-        lblTelefono.setText("Teléfono");
+        jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        jLabel4.setText("Teléfono");
 
+        lblDireccion.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         lblDireccion.setText("Dirección");
 
+        lblContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         lblContraseña.setText("Contraseña");
 
+        botonGuardar.setBackground(new java.awt.Color(51, 51, 255));
+        botonGuardar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonGuardar.setForeground(new java.awt.Color(255, 255, 255));
         botonGuardar.setText("Registrar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +77,9 @@ public class frmUsuario extends javax.swing.JFrame {
             }
         });
 
+        botonVaciar.setBackground(new java.awt.Color(255, 153, 0));
+        botonVaciar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonVaciar.setForeground(new java.awt.Color(255, 255, 255));
         botonVaciar.setText("Vaciar");
         botonVaciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +87,9 @@ public class frmUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(102, 255, 0));
+        btnVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,9 +114,9 @@ public class frmUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblTelefono)
-                            .addComponent(lblEmail)
-                            .addComponent(lblNombre)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
                             .addComponent(lblDireccion))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -114,9 +128,9 @@ public class frmUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(btnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(botonVaciar)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonGuardar)
                 .addGap(36, 36, 36))
         );
@@ -128,15 +142,15 @@ public class frmUsuario extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoTextoNombre)
-                    .addComponent(lblNombre))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoTextoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmail))
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoTextoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefono))
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,41 +246,8 @@ public class frmUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmUsuario().setVisible(true);
-            }
-        });
-    }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonGuardar;
     private javax.swing.JButton botonVaciar;
@@ -277,10 +258,10 @@ public class frmUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField campoTextoNombre;
     private javax.swing.JTextField campoTextoTelefono;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblTelefono;
     // End of variables declaration//GEN-END:variables
 }

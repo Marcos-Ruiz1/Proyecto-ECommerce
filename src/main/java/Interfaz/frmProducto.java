@@ -22,6 +22,15 @@ public class frmProducto extends javax.swing.JFrame {
     private Usuario usuario; //Objeto usuario que te traes desde la ventana de LogIn para utilizarlo en otros frames como el frmProducto o en frmPedidos
     private Carrito carrito = new Carrito();
 
+    
+    
+    /**
+     * Contructor frmProducto que inicializa los componentes de la ventana
+     */
+    public frmProducto(){
+        initComponents();
+    }
+    
     /**
      * Constructor frmProducto que inicializa los componentes de la ventana e
      * inicializa el usuario con el que se inició sesión
@@ -69,6 +78,8 @@ public class frmProducto extends javax.swing.JFrame {
         botonPedidos = new javax.swing.JButton();
         Usuario = new javax.swing.JLabel();
         textoNombre = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +96,14 @@ public class frmProducto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("idProducto");
 
         campoTextoIdProducto.setColumns(5);
 
+        botonCarrito.setBackground(new java.awt.Color(0, 51, 204));
+        botonCarrito.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonCarrito.setForeground(new java.awt.Color(255, 255, 255));
         botonCarrito.setText("Carrito");
         botonCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +111,9 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
+        botonAgregar.setBackground(new java.awt.Color(51, 255, 51));
+        botonAgregar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonAgregar.setForeground(new java.awt.Color(255, 255, 255));
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,9 +121,12 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("Productos");
 
+        botonPedidos.setBackground(new java.awt.Color(255, 153, 0));
+        botonPedidos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonPedidos.setForeground(new java.awt.Color(255, 255, 255));
         botonPedidos.setText("Historial De Pedidos");
         botonPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +134,27 @@ public class frmProducto extends javax.swing.JFrame {
             }
         });
 
+        Usuario.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         Usuario.setText("Usuario:");
+
+        btnActualizar.setBackground(new java.awt.Color(255, 153, 0));
+        btnActualizar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar Datos");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminar.setText("Eliminar Cuenta");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,7 +163,7 @@ public class frmProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -131,9 +172,8 @@ public class frmProducto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonPedidos)
-                        .addGap(86, 86, 86)
-                        .addComponent(botonCarrito)
-                        .addGap(126, 126, 126)))
+                        .addGap(146, 146, 146)
+                        .addComponent(botonCarrito)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -142,35 +182,43 @@ public class frmProducto extends javax.swing.JFrame {
                 .addComponent(textoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(108, 108, 108)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(btnActualizar)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(botonAgregar)
-                    .addContainerGap(630, Short.MAX_VALUE)))
+                    .addContainerGap(644, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Usuario)
-                    .addComponent(textoNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(Usuario)
+                        .addComponent(textoNombre))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnActualizar)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(campoTextoIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCarrito)
                     .addComponent(botonPedidos))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(280, Short.MAX_VALUE)
+                    .addContainerGap(274, Short.MAX_VALUE)
                     .addComponent(botonAgregar)
                     .addContainerGap()))
         );
@@ -232,12 +280,36 @@ public class frmProducto extends javax.swing.JFrame {
         pedidosVentana.setVisible(true);
     }//GEN-LAST:event_botonPedidosActionPerformed
 
+    /**
+     * Manejador de evento para el botón "Actualizar". se ejecuta cuando se hace cliic
+     * en el botón. Abre una nueva ventana para actualizar los datos del usuario.
+     * @param evt el evento de acción al dar clic en el botón actualizar datos 
+     */
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        frmActualizar ventanaActualizar = new frmActualizar(this.usuario, this);
+        ventanaActualizar.setVisible(true);
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    /**
+     * Manejador de evento para el botón "Eliminar". se ejecuta cuando se hace cliic
+     * en el botón. Abre una nueva ventana para eliminar la cuenta del usuario.
+     * @param evt el evento de acción al dar clic en el botón eliminar
+     */
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        frmEliminar ventanaEliminar = new frmEliminar(this);
+        ventanaEliminar.setVisible(true);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Usuario;
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonCarrito;
     private javax.swing.JButton botonPedidos;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JTextField campoTextoIdProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

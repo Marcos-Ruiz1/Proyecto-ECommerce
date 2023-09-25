@@ -117,7 +117,7 @@ public class TMPedido implements TableModel {
         Pedido p = pedidos.get(rowIndex);
 
         switch (columnIndex) {
-            case 0 -> {
+            case 0-> {
                 return p.getIdPedido();
 
             }
